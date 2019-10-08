@@ -27,14 +27,14 @@ Available tools available:
 
 * Session 1
   get inspired (z.b. [Spiegel Online](https://www.spiegel.de/wirtschaft/service/mobilitaet-in-vilnius-app-trafi-revolutioniert-den-stadtverkehr-a-1196674.html), [mobilitylab.org](https://mobilitylab.org/2018/08/31/here-are-the-three-best-public-transit-apps/), [App Stores](https://play.google.com), ...)
-  check available data, find gaps, search missing
-  develop useful scenarios
-  create an idea / concept
+  * check available data, find gaps, search missing
+  * develop useful scenarios
+  * create an idea / concept
   
 * Session 2
   Workgroups on:
-  ** collaborative environment (git & github)
-  ** data integration/transformation with FME
-  ** data integration/transformation with HALE
-  ** basic concepts of REST, hiw to use public REST services
-  ** leraning WFS 3.0
+    * collaborative environment (git & github)
+    * data integration/transformation with FME
+    * data integration/transformation with HALE
+    * basic concepts of REST, hiw to use public REST services
+    * leraning WFS 3.0
