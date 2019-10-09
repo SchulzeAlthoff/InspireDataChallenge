@@ -26,7 +26,7 @@ Available tools available:
 ## Planning
 
 * Session 1
-  get inspired (z.b. [Spiegel Online](https://www.spiegel.de/wirtschaft/service/mobilitaet-in-vilnius-app-trafi-revolutioniert-den-stadtverkehr-a-1196674.html), [mobilitylab.org](https://mobilitylab.org/2018/08/31/here-are-the-three-best-public-transit-apps/), [App Stores](https://play.google.com), ...)
+  get inspired (z.b. [Spiegel Online](https://www.spiegel.de/wirtschaft/service/mobilitaet-in-vilnius-app-trafi-revolutioniert-den-stadtverkehr-a-1196674.html), [mobilitylab.org](https://mobilitylab.org/2018/08/31/here-are-the-three-best-public-transit-apps/), [App Stores](https://play.google.com), [Tokio](https://nagix.github.io/mini-tokyo-3d/#14/35.6814/139.767/0/60)...)
   * check available data, find gaps, search missing
   * develop useful scenarios
   * create an idea / concept
