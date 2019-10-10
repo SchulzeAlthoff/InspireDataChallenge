@@ -37,4 +37,6 @@ Available tools available:
     * data integration/transformation with FME
     * data integration/transformation with HALE
     * basic concepts of REST, hiw to use public REST services
+    * services and data with ArcGIS Online
     * leraning WFS 3.0
+    * file formats / WFS 3.0 with OGR/GDAL
