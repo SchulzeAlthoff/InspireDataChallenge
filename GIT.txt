@@ -1,0 +1,53 @@
+Download:
+https://git-scm.com/download/win
+https://git-scm.com/download/mac
+
+Systemvariable in Path hinzufzuegen:
+
+Pfad\Git\cmd
+
+Zum Testen, ob Git korrekt installiert wurde,
+kann über die Kommandozeile (Powershell, Terminal, ...)
+der Befehl git --version aufgerufen werden
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+git status		zeigt aenderungen usw
+git add --a		fuegt aenderungen zu commit hinzu (--a: alle)
+git commit -m 		"message" erzeugt (lokalen) commit
+git push		lade daten hoch
+git pull		lade daten runter
+git checkout .		discard all changes
+
+Repository beziehen:
+- navigieren in workspace o.ä.
+- git clone link.git
+
+Pushen:
+- cd repository
+- git add Dateien, die gepusht werden sollen
+- git commit (-a (für alle Dateien)) -m "message"		// zum closen eines issues in die message "close #numberOfIssue" schreiben
+- git push -u origin master
+
+Pullen:
+
+- cd repository
+- git pull
+
+Pull Request:
+
+- normal pushen
+- pull request button in github
