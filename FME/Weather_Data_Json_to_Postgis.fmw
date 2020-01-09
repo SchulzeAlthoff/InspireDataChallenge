@@ -1,0 +1,1981 @@
+#! <?xml version="1.0" encoding="UTF-8" ?>
+#! <WORKSPACE
+#    Command-line to run this workspace:
+#        "C:\Program Files\FME\fme.exe" "C:\Sachen\Chris Studium\GI-Projekt1\FME_Data_Extract\Weather_Data_Json_to_Postgis.fmw"
+#              --SourceDataset_GEOJSON "C:\Sachen\Chris Studium\GI-Projekt1\FME_Data_Extract\Weather_Data_all_20200109T140000Z.json"
+#              --DestDataset_POSTGRES "Helsinki_osm"
+#    
+#!   ATTR_TYPE_ENCODING="SDF"
+#!   BEGIN_PYTHON=""
+#!   BEGIN_TCL=""
+#!   CATEGORY=""
+#!   DESCRIPTION=""
+#!   DESTINATION="NONE"
+#!   DESTINATION_ROUTING_FILE=""
+#!   DOC_EXTENTS="7906 1282.75"
+#!   DOC_TOP_LEFT="109 600.75"
+#!   END_PYTHON=""
+#!   END_TCL=""
+#!   EXPLICIT_BOOKMARK_ORDER="false"
+#!   FME_BUILD_NUM="18590"
+#!   FME_DOCUMENT_GUID="5e696289-48f1-4980-be3a-c4793dd2d440"
+#!   FME_DOCUMENT_PRIORGUID="e373c61d-1632-402c-83a1-afe0a925eae0,2fad540d-05d6-4243-8528-6479cf938a1d,86085b45-28a1-423d-88c5-09fd0ea26101,387b6271-f22c-419a-820d-78c2bd04c423,81842d4d-714a-422e-97e3-3c598f6ecb28,12a42df8-7904-49c9-a98b-0c60b62bc94e"
+#!   FME_GEOMETRY_HANDLING="Enhanced"
+#!   FME_IMPLICIT_CSMAP_REPROJECTION_MODE="Auto"
+#!   FME_REPROJECTION_ENGINE="FME"
+#!   FME_SERVER_SERVICES=""
+#!   FME_STROKE_MAX_DEVIATION="0"
+#!   HISTORY=""
+#!   IGNORE_READER_FAILURE="No"
+#!   LAST_SAVE_BUILD="FME(R) 2018.1.2.0 (20190225 - Build 18590 - WIN64)"
+#!   LAST_SAVE_DATE="2020-01-09T15:06:39"
+#!   LOG_FILE=""
+#!   LOG_MAX_RECORDED_FEATURES="200"
+#!   MARKDOWN_DESCRIPTION=""
+#!   MARKDOWN_USAGE=""
+#!   MAX_LOG_FEATURES="200"
+#!   MULTI_WRITER_DATASET_ORDER="BY_ID"
+#!   PASSWORD=""
+#!   PYTHON_COMPATIBILITY="27"
+#!   REDIRECT_TERMINATORS="NONE"
+#!   SHOW_ANNOTATIONS="true"
+#!   SHOW_INFO_NODES="true"
+#!   SOURCE="NONE"
+#!   SOURCE_ROUTING_FILE=""
+#!   TERMINATE_REJECTED="YES"
+#!   TITLE=""
+#!   USAGE=""
+#!   USE_MARKDOWN=""
+#!   VIEW_POSITION="-877.413 2644.26"
+#!   WARN_INVALID_XFORM_PARAM="Yes"
+#!   WORKSPACE_VERSION="1"
+#!   ZOOM_SCALE="52"
+#! >
+#! <DATASETS>
+#! <DATASET
+#!   IS_SOURCE="true"
+#!   ROLE="READER"
+#!   FORMAT="GEOJSON"
+#!   DATASET="$(SourceDataset_GEOJSON)"
+#!   KEYWORD="GEOJSON_1"
+#!   MULTI_GEOM_ALLOWED="false"
+#!   ATTR_MAX_LENGTH="0"
+#!   ATTR_CASE="ANY"
+#!   ALLOWED_FEAT_TYPES=""
+#!   WRITE_DEFS="true"
+#!   DEFLINE_TEMPLATE=""
+#!   DEFLINE_ATTRS="true"
+#!   EXPOSABLE_ATTRS="fme_color string fme_sweep_angle float multi_reader_id int fme_fill_color string fme_primary_axis float fme_type string fme_secondary_axis float fme_dataset string fme_feature_type string multi_reader_full_id int fme_basename string fme_start_angle float multi_reader_keyword string fme_rotation float fme_text_string string fme_text_size float fme_geometry string multi_reader_type string"
+#!   DEFLINE_PARMS=""
+#!   ATTR_INDEX_TYPES=""
+#!   ATTR_NAME_INVALID_CHARS=""
+#!   SUPPORTS_FEATURE_TYPE_FANOUT="true"
+#!   ENABLED="true"
+#!   DYNAMIC_FEATURE_TYPES_LIST_ON_MERGE="true"
+#!   DATASET_TYPE="FILE"
+#!   GENERATE_FME_BUILD_NUM="18590"
+#!   COORDSYS=""
+#!   FEATURE_TYPES=""
+#!   MAX_FEATURES=""
+#!   MAX_FEATURES_PER_FEATURE_TYPE=""
+#!   MIN_FEATURES=""
+#!   START_FEATURE=""
+#! >
+#! <METAFILE_PARAMETER
+#!   NAME="DATASET_NAME"
+#!   VALUE="json file"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="MIME_TYPE"
+#!   VALUE="application/geo+json ADD_DISPOSITION"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="READER_DATASET_HINT"
+#!   VALUE="Select the GeoJSON file(s) or type the GeoJSON URL"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="WRITER_DATASET_HINT"
+#!   VALUE="Specify a name for the GeoJSON file"
+#! />
+#! </DATASET>
+#! <DATASET
+#!   IS_SOURCE="false"
+#!   ROLE="WRITER"
+#!   FORMAT="POSTGRES"
+#!   DATASET="$(DestDataset_POSTGRES)"
+#!   KEYWORD="POSTGRES_1"
+#!   MULTI_GEOM_ALLOWED="true"
+#!   ATTR_MAX_LENGTH="63"
+#!   ATTR_CASE="LOWER"
+#!   ALLOWED_FEAT_TYPES=""
+#!   WRITE_DEFS="true"
+#!   DEFLINE_TEMPLATE="postgres_type {FME_GEN_GEOMETRY} postgres_sql_key_columns &quot;&quot; postgres_drop_table &quot;&quot; postgres_truncate_table &quot;&quot; postgres_mode &quot;&quot; fme_feature_operation INSERT fme_table_handling CREATE_IF_MISSING fme_selection_method MATCH_COLUMNS fme_match_columns &quot;&quot; fme_where_builder_clause &quot;&quot; postgres_create_with_oids NO postgres_vacuum_analyze NO postgres_allow_serial_writing NO"
+#!   DEFLINE_ATTRS="true"
+#!   EXPOSABLE_ATTRS="fme_fill_color char(50) fme_dataset char(50) fme_text_string char(50) fme_secondary_axis float8 fme_primary_axis float8 fme_color char(50) fme_text_size float8 fme_basename char(50) fme_geometry char(50) fme_type char(50) fme_rotation float8 fme_db_operation char(8) fme_sweep_angle float8 postgres_type char(50) fme_feature_type char(50) fme_start_angle float8"
+#!   DEFLINE_PARMS="&quot;GUI OPTIONAL NAMEDGROUP fme_configuration_group fme_configuration_common_group%fme_spatial_group%fme_advanced_group%oracle_advanced_group Table&quot; &quot;&quot; &quot;GUI OPTIONAL NAMEDGROUP fme_configuration_common_group fme_feature_operation%fme_table_handling%oracle_model%fme_update_geometry%fme_selection_group%fme_table_creation_group General&quot; &quot;&quot; &quot;GUI ACTIVECHOICE_LOOKUP fme_feature_operation Insert,INSERT,fme_update_geometry,fme_selection_group%Update,UPDATE,++fme_table_handling+USE_EXISTING,++fme_selection_group+FME_DISCLOSURE_OPEN%Delete,DELETE,++fme_table_handling+USE_EXISTING,fme_update_geometry,++fme_selection_group+FME_DISCLOSURE_OPEN,fme_spatial_group,fme_advanced_group,oracle_sequenced_cols%&lt;at&gt;Value&lt;openparen&gt;fme_db_operation&lt;closeparen&gt;,MULTIPLE,++fme_table_handling+USE_EXISTING,++fme_selection_group+FME_DISCLOSURE_OPEN Feature Operation&quot; INSERT &quot;GUI ACTIVECHOICE_LOOKUP fme_table_handling Use&lt;space&gt;Existing,USE_EXISTING,fme_table_creation_group%Create&lt;space&gt;If&lt;space&gt;Needed,CREATE_IF_MISSING%Drop&lt;space&gt;and&lt;space&gt;Create,DROP_CREATE%Truncate&lt;space&gt;Existing,TRUNCATE_EXISTING,fme_table_creation_group Table Handling&quot; CREATE_IF_MISSING &quot;GUI OPTIONAL DISCLOSUREGROUP fme_selection_group fme_selection_method Row Selection&quot; &quot;&quot; &quot;GUI OPTIONAL WHOLE_LINE RADIOPARAMETERGROUP fme_selection_method fme_match_columns,MATCH_COLUMNS%fme_where_builder_clause,BUILDER Row Selection Method&quot; MATCH_COLUMNS &quot;GUI WHOLE_LINE ATTRLIST_COMMAS fme_match_columns \&quot; \&quot; Match Columns&quot; &quot;&quot; &quot;GUI WHOLE_LINE TEXT_EDIT_SQL_CFG_OR_ATTR fme_where_builder_clause MODE,WHERE WHERE Clause&quot; &quot;&quot; &quot;GUI OPTIONAL DISCLOSUREGROUP fme_table_creation_group postgres_create_with_oids Table Creation Parameters&quot; &quot;&quot; &quot;GUI CHOICE postgres_create_with_oids YES%NO Create With OIDs&quot; NO &quot;GUI OPTIONAL DISCLOSUREGROUP fme_advanced_group postgres_vacuum_analyze%postgres_allow_serial_writing Advanced&quot; &quot;&quot; &quot;GUI CHOICE postgres_vacuum_analyze YES%NO Vacuum Analyze Table&quot; NO &quot;GUI CHOICE postgres_allow_serial_writing YES%NO Allow Serial Column Writing&quot; NO "
+#!   ATTR_INDEX_TYPES="BTree RTree Hash PrimaryKey"
+#!   ATTR_NAME_INVALID_CHARS=". %-#[]&quot;()!?*&apos;&amp;+\/"
+#!   SUPPORTS_FEATURE_TYPE_FANOUT="true"
+#!   ENABLED="true"
+#!   DYNAMIC_FEATURE_TYPES_LIST_ON_MERGE="true"
+#!   DATASET_TYPE="DATABASE"
+#!   GENERATE_FME_BUILD_NUM="18590"
+#!   COORDSYS=""
+#! >
+#! <METAFILE_PARAMETER
+#!   NAME="ADVANCED_PARMS"
+#!   VALUE="POSTGRES_IN_FEATURES_PER_FETCH POSTGRES_IN_BEGIN_SQL POSTGRES_IN_END_SQL POSTGRES_OUT_BULK_COPY POSTGRES_OUT_TRANSACTION_INTERVAL POSTGRES_OUT_BEGIN_SQL POSTGRES_OUT_END_SQL"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="ATTRIBUTE_READING"
+#!   VALUE="DEFLINE_ATTRS"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="ATTRIBUTE_READING_HISTORIC"
+#!   VALUE="ALL"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="DATASET_NAME"
+#!   VALUE="Database"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="FEATURE_TYPE_DEFAULT_NAME"
+#!   VALUE="Table1"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="FEATURE_TYPE_NAME"
+#!   VALUE="Table"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="NETWORK_AUTHENTICATION"
+#!   VALUE="NO"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="NETWORK_PROXY"
+#!   VALUE="NO"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="PARAMS_TO_NOT_PROPAGATE_ON_INSPECT"
+#!   VALUE="BEGIN_SQL{0} END_SQL{0}"
+#! />
+#! <METAFILE_PARAMETER
+#!   NAME="SUPPORTS_SCHEMA_IN_FEATURE_TYPE_NAME"
+#!   VALUE="YES"
+#! />
+#! </DATASET>
+#! </DATASETS>
+#! <DATA_TYPES>
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_binarybuffer"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_xml"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_varchar(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_varbinary(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="boolean"
+#!   FME_TYPE="fme_boolean"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_char(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_binary(width)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_datetime"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_time"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_date"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="float"
+#!   FME_TYPE="fme_real64"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="float"
+#!   FME_TYPE="fme_real32"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int64"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_uint64"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int32"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_uint32"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int16"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_uint16"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_int8"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="int"
+#!   FME_TYPE="fme_uint8"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="string"
+#!   FME_TYPE="fme_decimal(width,decimal)"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json"
+#!   FME_TYPE="fme_json"
+#!   FORMAT="GEOJSON"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="bool"
+#!   FME_TYPE="fme_boolean"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="char(width)"
+#!   FME_TYPE="fme_char(width)"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="varchar(width)"
+#!   FME_TYPE="fme_varchar(width)"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="text"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="xml"
+#!   FME_TYPE="fme_xml"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="json"
+#!   FME_TYPE="fme_json"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="jsonb"
+#!   FME_TYPE="fme_json"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="bytea"
+#!   FME_TYPE="fme_binarybuffer"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="bytea"
+#!   FME_TYPE="fme_varbinary(width)"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="bytea"
+#!   FME_TYPE="fme_binary(width)"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int2"
+#!   FME_TYPE="fme_int16"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int2"
+#!   FME_TYPE="fme_int8"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int2"
+#!   FME_TYPE="fme_uint8"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int4"
+#!   FME_TYPE="fme_int32"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int4"
+#!   FME_TYPE="fme_uint16"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int8"
+#!   FME_TYPE="fme_int64"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="int8"
+#!   FME_TYPE="fme_uint32"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="numeric(width,decimal)"
+#!   FME_TYPE="fme_decimal(width,decimal)"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="numeric(20,0)"
+#!   FME_TYPE="fme_uint64"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="oid"
+#!   FME_TYPE="fme_uint32"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="serial"
+#!   FME_TYPE="fme_int32"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="float4"
+#!   FME_TYPE="fme_real32"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="money"
+#!   FME_TYPE="fme_real32"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="float8"
+#!   FME_TYPE="fme_real64"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="date"
+#!   FME_TYPE="fme_date"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="time"
+#!   FME_TYPE="fme_time"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="timetz"
+#!   FME_TYPE="fme_time"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="timestamp"
+#!   FME_TYPE="fme_datetime"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="timestamptz"
+#!   FME_TYPE="fme_datetime"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="uuid"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="bit(width)"
+#!   FME_TYPE="fme_char(width)"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="varbit"
+#!   FME_TYPE="fme_buffer"
+#!   FORMAT="POSTGRES"
+#! />
+#! <DATA_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="varbit(width)"
+#!   FME_TYPE="fme_varchar(width)"
+#!   FORMAT="POSTGRES"
+#! />
+#! </DATA_TYPES>
+#! <GEOM_TYPES>
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_point"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_line"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_polygon"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_text"
+#!   FME_TYPE="fme_text"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_ellipse"
+#!   FME_TYPE="fme_ellipse"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_arc"
+#!   FME_TYPE="fme_arc"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_rectangle"
+#!   FME_TYPE="fme_rectangle"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_rounded_rectangle"
+#!   FME_TYPE="fme_rounded_rectangle"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_raster"
+#!   FME_TYPE="fme_raster"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_no_geom"
+#!   FME_TYPE="fme_no_geom"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_collection"
+#!   FME_TYPE="fme_collection"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_line"
+#!   FME_TYPE="fme_surface"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_line"
+#!   FME_TYPE="fme_solid"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_polygon"
+#!   FME_TYPE="fme_point_cloud"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="true"
+#!   FORMAT_TYPE="json_no_geom"
+#!   FME_TYPE="fme_feature_table"
+#!   FORMAT="GEOJSON"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_no_geom"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_point"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_line"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_area"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_rectangle"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_rounded_rectangle"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_text"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_ellipse"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_arc"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_collection"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_raster"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_surface"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_solid"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_point_cloud"
+#!   FORMAT="POSTGRES"
+#! />
+#! <GEOM_TYPE
+#!   IS_SOURCE="false"
+#!   FORMAT_TYPE="postgres_none"
+#!   FME_TYPE="fme_feature_table"
+#!   FORMAT="POSTGRES"
+#! />
+#! </GEOM_TYPES>
+#! <FEATURE_TYPES>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="true"
+#!   NODE_NAME="Weather_Data_all_20200109T140000Z"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="false"
+#!   IDENTIFIER="5"
+#!   FEAT_GEOMTYPE="json_point"
+#!   POSITION="109 1804.25"
+#!   BOUNDING_RECT="109 1804.25 -1 -1"
+#!   ORDER="500000000000010"
+#!   COLLAPSED="false"
+#!   KEYWORD="GEOJSON_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   HIDDEN_USER_ATTRS=""
+#!   MERGE_FILTER="*"
+#!   MERGE_FILTER_TYPE="FILTER_TYPE_GLOB"
+#!   MERGE_FILTER_CASE_SENSITIVE="false"
+#!   DYNAMIC_SCHEMA="false"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="observationType" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="timestep{}" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="id" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="observedPropertyName" ATTR_TYPE="string" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="result{}" ATTR_TYPE="int" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#! </FEATURE_TYPE>
+#! <FEATURE_TYPE
+#!   IS_SOURCE="false"
+#!   NODE_NAME="weather_data"
+#!   FEATURE_TYPE_NAME=""
+#!   FEATURE_TYPE_NAME_QUALIFIER=""
+#!   IS_EDITABLE="true"
+#!   IDENTIFIER="47"
+#!   FEAT_GEOMTYPE="All"
+#!   POSITION="8015 1154.75"
+#!   BOUNDING_RECT="8015 1154.75 -1 -1"
+#!   ORDER="500000000000028"
+#!   COLLAPSED="false"
+#!   KEYWORD="POSTGRES_1"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   SCHEMA_ATTRIBUTE_SOURCE="1"
+#! >
+#!     <FEAT_ATTRIBUTE ATTR_NAME="observedpropertyname" ATTR_TYPE="text" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="timestep" ATTR_TYPE="varchar(200)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="result" ATTR_TYPE="varchar(200)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <FEAT_ATTRIBUTE ATTR_NAME="gfid" ATTR_TYPE="varchar(200)" ATTR_HAS_PORT="true" ATTR_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="fme_advanced_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="fme_configuration_common_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="fme_configuration_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="fme_feature_operation" PARM_VALUE="INSERT"/>
+#!     <DEFLINE_PARM PARM_NAME="fme_match_columns" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <DEFLINE_PARM PARM_NAME="fme_selection_group" PARM_VALUE=""/>
+#!     <DEFLINE_PARM PARM_NAME="fme_selection_method" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <DEFLINE_PARM PARM_NAME="fme_table_creation_group" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <DEFLINE_PARM PARM_NAME="fme_table_handling" PARM_VALUE="DROP_CREATE"/>
+#!     <DEFLINE_PARM PARM_NAME="fme_where_builder_clause" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <DEFLINE_PARM PARM_NAME="postgres_allow_serial_writing" PARM_VALUE="NO"/>
+#!     <DEFLINE_PARM PARM_NAME="postgres_create_with_oids" PARM_VALUE="YES"/>
+#!     <DEFLINE_PARM PARM_NAME="postgres_vacuum_analyze" PARM_VALUE="NO"/>
+#! </FEATURE_TYPE>
+#! </FEATURE_TYPES>
+#! <FMESERVER>
+#! <READER_DATASETS>
+#! <DATASET 
+#!   NAME="GEOJSON_1"
+#!   OVERRIDE="-GEOJSON_1_DATASET"
+#!   DATASET="GEOJSON_1/Weather_Data_all_20200109T140000Z.json"
+#! />
+#! </READER_DATASETS>
+#! </FMESERVER>
+#! <GLOBAL_PARAMETERS>
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI FILE_OR_URL SourceDataset_GEOJSON GeoJSON_Documents(*.json;*.geojson)|*.json;*.geojson|All_Files|* Source GeoJSON File or URL:"
+#!   DEFAULT_VALUE="$(FME_MF_DIR)Weather_Data_all_20200109T140000Z.json"
+#!   IS_STAND_ALONE="false"
+#! />
+#! <GLOBAL_PARAMETER
+#!   GUI_LINE="GUI NAMED_DB_CONNECTION_ENCODED DestDataset_POSTGRES FMT:POSTGRES%FAMILY:PostgreSQL Connection:"
+#!   DEFAULT_VALUE="Helsinki_osm"
+#!   IS_STAND_ALONE="false"
+#! />
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="4"
+#!   TYPE="DuplicateFilter"
+#!   VERSION="5"
+#!   POSITION="2920 911.5"
+#!   BOUNDING_RECT="2920 911.5 -1 -1"
+#!   ORDER="500000000000004"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="UNIQUE"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="DUPLICATE"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="INPUT_ORDERED_CHOICE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="KEYATTR" PARM_VALUE="_geometry"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="DuplicateFilter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="10"
+#!   TYPE="GeometryExtractor"
+#!   VERSION="14"
+#!   POSITION="2230 1627"
+#!   BOUNDING_RECT="2230 1627 -1 -1"
+#!   ORDER="500000000000006"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ATTR" PARM_VALUE="_geometry"/>
+#!     <XFORM_PARM PARM_NAME="ELLIPSOID_NAME" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GEOHASH_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOHASH_PRECISION_DISPLAY" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ISO6709_FORMAT_CHOICE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ISO6709_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ISO6709_MAX_DECIMAL_PLACES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="JSON_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="JSON_MAX_DIGITS" PARM_VALUE="7"/>
+#!     <XFORM_PARM PARM_NAME="KIND_LONG" PARM_VALUE="GeoJSON"/>
+#!     <XFORM_PARM PARM_NAME="LETTERING" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="LEVELS_ATTR" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="MGRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MSSQL_FORMAT_CHOICE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="MSSQL_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OGCVERSION" PARM_VALUE="1.2"/>
+#!     <XFORM_PARM PARM_NAME="OGC_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OGC_WKT_PRECISION_DISPLAY" PARM_VALUE="64-bit"/>
+#!     <XFORM_PARM PARM_NAME="OGEOSMS_URL_PREFIX" PARM_VALUE="http://maps.google.com/?q="/>
+#!     <XFORM_PARM PARM_NAME="OMIT_NAMESPACES_DISPLAY" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POLYLINE_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PRECISION" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PREFER_POLYGON_OVER_SURFACE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="REMOVE_GEOMETRY" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="GeometryExtractor"/>
+#!     <XFORM_PARM PARM_NAME="XML_GROUP" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="14"
+#!   TYPE="FeatureReader"
+#!   VERSION="11"
+#!   POSITION="5047.2416874168739 690.75"
+#!   BOUNDING_RECT="5047.2416874168739 690.75 554.51662516625129 71"
+#!   ORDER="500000000000008"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="&lt;SCHEMA&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.count" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_dataset" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_total_features_written" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_feature_type_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.fme_data_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="attribute{}.native_data_type" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_format_short_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_format_long_name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="fme_schema_handling" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="public.weather_data_stations"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="&lt;OTHER&gt;"/>
+#!     <OUTPUT_FEAT NAME="INITIATOR"/>
+#!     <FEAT_COLLAPSED COLLAPSED="3"/>
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.count" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.name" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_dataset" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_total_features_written" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_matched_records" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="4"/>
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.count" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.name" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="_dataset" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="_total_features_written" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="_reader_error" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTES" PARM_VALUE="public.weather_data_stations,gfid"/>
+#!     <XFORM_PARM PARM_NAME="ATTRS_TO_EXPOSE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Only Use Result"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="AVAILABLE_FEATURE_TYPES" PARM_VALUE="public.weather_data_stations"/>
+#!     <XFORM_PARM PARM_NAME="CACHE_TIMEOUT_HRS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="COMBINE_GEOM" PARM_VALUE="Use Result"/>
+#!     <XFORM_PARM PARM_NAME="CONSTRAINTS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="DATASET" PARM_VALUE="Helsinki_osm"/>
+#!     <XFORM_PARM PARM_NAME="DYNGROUP_0" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ENABLE_CACHE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="FEATURETYPES" PARM_VALUE="public.weather_data_stations"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT" PARM_VALUE="POSTGIS"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_DIRECTIVES" PARM_VALUE="META_MACROS,SourceQUERY_FEATURE_TYPES_FOR_MERGE_FILTERS&lt;comma&gt;Yes&lt;comma&gt;SourceREAD_TIME_WITH_TIMEZONE&lt;comma&gt;Yes&lt;comma&gt;SourceDISABLE_COLLECTION_SPLITTING&lt;comma&gt;yes&lt;comma&gt;SourceUSE_TRUE_POSTGIS_TYPES&lt;comma&gt;yes&lt;comma&gt;SourceNAMED_CONNECTION&lt;comma&gt;Helsinki_osm&lt;comma&gt;SourceSCHEMAS_FOR_TABLE_LISTING&lt;comma&gt;&lt;comma&gt;SourceWHERE_CLAUSE&lt;comma&gt;&lt;comma&gt;SourceEXPOSE_ATTRS_GROUP&lt;comma&gt;&lt;comma&gt;SourcePOSTGIS_EXPOSE_FORMAT_ATTRS&lt;comma&gt;&lt;comma&gt;SourceUSE_SEARCH_ENVELOPE&lt;comma&gt;NO&lt;comma&gt;SourceSEARCH_ENVELOPE_MINX&lt;comma&gt;0&lt;comma&gt;SourceSEARCH_ENVELOPE_MINY&lt;comma&gt;0&lt;comma&gt;SourceSEARCH_ENVELOPE_MAXX&lt;comma&gt;0&lt;comma&gt;SourceSEARCH_ENVELOPE_MAXY&lt;comma&gt;0&lt;comma&gt;SourceSEARCH_ENVELOPE_COORDINATE_SYSTEM&lt;comma&gt;&lt;comma&gt;SourceCLIP_TO_ENVELOPE&lt;comma&gt;NO&lt;comma&gt;SourceSEARCH_METHOD&lt;comma&gt;MBR_OVERLAPS&lt;comma&gt;SourceADVANCED&lt;comma&gt;&lt;comma&gt;SourceFEATURES_PER_FETCH&lt;comma&gt;10000&lt;comma&gt;SourceBEGIN_SQL&lt;comma&gt;&lt;comma&gt;SourceEND_SQL&lt;comma&gt;,METAFILE,POSTGIS"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_PARAMS" PARM_VALUE="POSTGIS_READ_TIME_WITH_TIMEZONE,&quot;OPTIONAL NO_EDIT TEXT&quot;,POSTGIS&lt;space&gt;,POSTGIS_USE_SEARCH_ENVELOPE,&quot;OPTIONAL ACTIVEDISCLOSUREGROUP SEARCH_ENVELOPE_MINX%SEARCH_ENVELOPE_MINY%SEARCH_ENVELOPE_MAXX%SEARCH_ENVELOPE_MAXY%SEARCH_ENVELOPE_COORDINATE_SYSTEM%CLIP_TO_ENVELOPE%SEARCH_METHOD%SEARCH_METHOD_FILTER%SEARCH_ORDER%SEARCH_FEATURE%DUMMY_SEARCH_ENVELOPE_PARAMETER&quot;,POSTGIS&lt;space&gt;Use&lt;space&gt;Search&lt;space&gt;Envelope,POSTGIS_POSTGIS_EXPOSE_FORMAT_ATTRS,&quot;OPTIONAL LITERAL EXPOSED_ATTRS POSTGIS%Source&quot;,POSTGIS&lt;space&gt;Additional&lt;space&gt;Attributes&lt;space&gt;to&lt;space&gt;Expose:,POSTGIS_QUERY_FEATURE_TYPES_FOR_MERGE_FILTERS,&quot;OPTIONAL NO_EDIT TEXT&quot;,POSTGIS&lt;space&gt;,POSTGIS_USE_TRUE_POSTGIS_TYPES,&quot;OPTIONAL NO_EDIT TEXT&quot;,POSTGIS&lt;space&gt;,POSTGIS_WHERE_CLAUSE,&quot;OPTIONAL TEXT_EDIT_SQL_CFG_ENCODED MODE,WHERE;FORMAT,POSTGIS&quot;,POSTGIS&lt;space&gt;WHERE&lt;space&gt;Clause:,POSTGIS_END_SQL,&quot;OPTIONAL TEXT_EDIT_SQL_CFG_ENCODED MODE,SQL;FORMAT,POSTGIS&quot;,POSTGIS&lt;space&gt;SQL&lt;space&gt;To&lt;space&gt;Run&lt;space&gt;After&lt;space&gt;Read,POSTGIS_BEGIN_SQL,&quot;OPTIONAL TEXT_EDIT_SQL_CFG_ENCODED MODE,SQL;FORMAT,POSTGIS&quot;,POSTGIS&lt;space&gt;SQL&lt;space&gt;To&lt;space&gt;Run&lt;space&gt;Before&lt;space&gt;Read,POSTGIS_FEATURES_PER_FETCH,&quot;OPTIONAL FLOAT&quot;,POSTGIS&lt;space&gt;Number&lt;space&gt;Of&lt;space&gt;Records&lt;space&gt;To&lt;space&gt;Fetch&lt;space&gt;At&lt;space&gt;A&lt;space&gt;Time,POSTGIS_EXPOSE_ATTRS_GROUP,&quot;OPTIONAL DISCLOSUREGROUP POSTGIS_EXPOSE_FORMAT_ATTRS&quot;,POSTGIS&lt;space&gt;Schema&lt;space&gt;Attributes,POSTGIS_ADVANCED,&quot;OPTIONAL DISCLOSUREGROUP FEATURES_PER_FETCH%BEGIN_SQL%END_SQL&quot;,POSTGIS&lt;space&gt;Advanced,POSTGIS_NAMED_CONNECTION,&quot;IGNORE TEXT&quot;,POSTGIS&lt;space&gt;Connection:,POSTGIS_DISABLE_COLLECTION_SPLITTING,&quot;OPTIONAL NO_EDIT TEXT&quot;,POSTGIS&lt;space&gt;"/>
+#!     <XFORM_PARM PARM_NAME="FTTR_SEPARATOR" PARM_VALUE="SPACE"/>
+#!     <XFORM_PARM PARM_NAME="GENERIC_GROUP" PARM_VALUE="FME_DISCLOSURE_CLOSED"/>
+#!     <XFORM_PARM PARM_NAME="INTERACT" PARM_VALUE="&lt;No Spatial Filter&gt;"/>
+#!     <XFORM_PARM PARM_NAME="MAX_FEATURES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MERGE_HANDLING_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUTPORTS_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_FEATURES_DISPLAY" PARM_VALUE="Schema and Data Features"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_FEATURES_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS_MODE" PARM_VALUE="PORTS_FROM_FTTR"/>
+#!     <XFORM_PARM PARM_NAME="PORTS_FROM_FTTR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_ADVANCED" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_BEGIN_SQL" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_DISABLE_COLLECTION_SPLITTING" PARM_VALUE="yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_END_SQL" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_EXPOSE_ATTRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_FEATURES_PER_FETCH" PARM_VALUE="10000"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_NAMED_CONNECTION" PARM_VALUE="Helsinki_osm"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_POSTGIS_EXPOSE_FORMAT_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_QUERY_FEATURE_TYPES_FOR_MERGE_FILTERS" PARM_VALUE="Yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_READ_TIME_WITH_TIMEZONE" PARM_VALUE="Yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_USE_SEARCH_ENVELOPE" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_USE_TRUE_POSTGIS_TYPES" PARM_VALUE="yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_WHERE_CLAUSE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="READER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="READ_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="SELECTED_PORTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SINGLE_PORT" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SUPPORTED_SPATIAL_INTERACTIONS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WHERE" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureReader"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="17"
+#!   TYPE="AttributeRenamer"
+#!   VERSION="4"
+#!   POSITION="3610 1597"
+#!   BOUNDING_RECT="3610 1597 -1 -1"
+#!   ORDER="500000000000012"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <XFORM_ATTR ATTR_NAME="_ori_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ATTRIBUTE_GRP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_TABLE" PARM_VALUE="_geometry _ori_geometry RENAME_SET_DEFAULT "/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="AttributeRenamer"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="20"
+#!   TYPE="SubDocumentTransformer"
+#!   VERSION="2"
+#!   POSITION="3622 789.5"
+#!   BOUNDING_RECT="3622 789.5 -1 -1"
+#!   ORDER="500000000000013"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="GFID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="SUB_DOC_NAME" PARM_VALUE="GUIDGenerator"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="GUIDGenerator"/>
+#!     <XFORM_PARM PARM_NAME="__COMPOUND_PARAMETERS" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="25"
+#!   TYPE="FeatureWriter"
+#!   VERSION="0"
+#!   POSITION="4304 600.75"
+#!   BOUNDING_RECT="4304 600.75 -1 -1"
+#!   ORDER="500000000000016"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="SUMMARY"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.count" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_feature_type{}.name" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_dataset" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_total_features_written" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="COORDSYS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="DATASET" PARM_VALUE="Helsinki_osm"/>
+#!     <XFORM_PARM PARM_NAME="DATASET_ATTR" PARM_VALUE="_dataset"/>
+#!     <XFORM_PARM PARM_NAME="DYNGROUP_0" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FEATURE_TYPES_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="FEATURE_TYPE_LIST_ATTR" PARM_VALUE="_feature_type"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT" PARM_VALUE="POSTGIS"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_DIRECTIVES" PARM_VALUE="RUNTIME_MACROS,STRICT_TEMPORAL_TYPE_HANDLING&lt;comma&gt;Yes&lt;comma&gt;NAMED_CONNECTION&lt;comma&gt;Helsinki_osm&lt;comma&gt;SPATIAL_COLUMN_TYPE&lt;comma&gt;geometry&lt;comma&gt;SPATIAL_COLUMN_NAME&lt;comma&gt;geom&lt;comma&gt;GENERIC_GEOMETRY&lt;comma&gt;yes&lt;comma&gt;LOWERCASE_ATTRIBUTE_NAMES&lt;comma&gt;Yes&lt;comma&gt;COORDINATE_SYSTEM_GRANULARITY&lt;comma&gt;FEATURE_TYPE&lt;comma&gt;ADVANCED&lt;comma&gt;&lt;comma&gt;BULK_COPY&lt;comma&gt;YES&lt;comma&gt;START_TRANSACTION&lt;comma&gt;0&lt;comma&gt;TRANSACTION_INTERVAL&lt;comma&gt;1000&lt;comma&gt;INSERT_TEXT_GEOMETRY&lt;comma&gt;NO&lt;comma&gt;BEGIN_SQL&lt;comma&gt;&lt;comma&gt;END_SQL&lt;comma&gt;,METAFILE,POSTGIS"/>
+#!     <XFORM_PARM PARM_NAME="FORMAT_PARAMS" PARM_VALUE="POSTGIS_SPATIAL_COLUMN_TYPE,&quot;OPTIONAL LOOKUP_CHOICE geometry%geography&quot;,POSTGIS&lt;space&gt;Spatial&lt;space&gt;Column&lt;space&gt;Type:,POSTGIS_INSERT_TEXT_GEOMETRY,&quot;OPTIONAL CHOICE YES%NO&quot;,POSTGIS&lt;space&gt;Insert&lt;space&gt;WKT,POSTGIS_START_TRANSACTION,&quot;OPTIONAL TEXT&quot;,POSTGIS&lt;space&gt;Starting&lt;space&gt;Feature:,POSTGIS_END_SQL,&quot;OPTIONAL TEXT_EDIT_SQL_CFG_ENCODED MODE,SQL;FORMAT,POSTGIS&quot;,POSTGIS&lt;space&gt;SQL&lt;space&gt;To&lt;space&gt;Run&lt;space&gt;After&lt;space&gt;Write,POSTGIS_BEGIN_SQL,&quot;OPTIONAL TEXT_EDIT_SQL_CFG_ENCODED MODE,SQL;FORMAT,POSTGIS&quot;,POSTGIS&lt;space&gt;SQL&lt;space&gt;To&lt;space&gt;Run&lt;space&gt;Before&lt;space&gt;Write,POSTGIS_STRICT_TEMPORAL_TYPE_HANDLING,&quot;OPTIONAL NO_EDIT TEXT&quot;,POSTGIS&lt;space&gt;,POSTGIS_SPATIAL_COLUMN_NAME,&quot;OPTIONAL TEXT&quot;,POSTGIS&lt;space&gt;Spatial&lt;space&gt;Column:,POSTGIS_LOWERCASE_ATTRIBUTE_NAMES,&quot;OPTIONAL CHECKBOX Yes%No&quot;,POSTGIS&lt;space&gt;Lower&lt;space&gt;Case&lt;space&gt;Attribute&lt;space&gt;Names:,POSTGIS_GENERIC_GEOMETRY,&quot;OPTIONAL CHECKBOX yes%no&quot;,POSTGIS&lt;space&gt;Create&lt;space&gt;Generic&lt;space&gt;Spatial&lt;space&gt;Columns:,POSTGIS_ADVANCED,&quot;OPTIONAL DISCLOSUREGROUP BULK_COPY%INSERT_TEXT_GEOMETRY%START_TRANSACTION%TRANSACTION_INTERVAL%BEGIN_SQL%END_SQL&quot;,POSTGIS&lt;space&gt;Advanced,POSTGIS_BULK_COPY,&quot;OPTIONAL CHOICE YES%NO&quot;,POSTGIS&lt;space&gt;Bulk&lt;space&gt;Insert,POSTGIS_NAMED_CONNECTION,&quot;IGNORE TEXT&quot;,POSTGIS&lt;space&gt;Connection:,POSTGIS_COORDINATE_SYSTEM_GRANULARITY,&quot;OPTIONAL NO_EDIT TEXT&quot;,POSTGIS&lt;space&gt;,POSTGIS_TRANSACTION_INTERVAL,&quot;OPTIONAL TEXT&quot;,POSTGIS&lt;space&gt;Features&lt;space&gt;Per&lt;space&gt;Transaction"/>
+#!     <XFORM_PARM PARM_NAME="MORE_SUMMARY_ATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="NO_OUTPUT_PORTS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OUTPUTPORTS_GROUP" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS" PARM_VALUE="&quot;&quot;"/>
+#!     <XFORM_PARM PARM_NAME="OUTPUT_PORTS_MODE" PARM_VALUE="NO_OUTPUT_PORTS"/>
+#!     <XFORM_PARM PARM_NAME="PER_EACH_INPUT" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_ADVANCED" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_BEGIN_SQL" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_BULK_COPY" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_COORDINATE_SYSTEM_GRANULARITY" PARM_VALUE="FEATURE_TYPE"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_END_SQL" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_GENERIC_GEOMETRY" PARM_VALUE="yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_INSERT_TEXT_GEOMETRY" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_LOWERCASE_ATTRIBUTE_NAMES" PARM_VALUE="Yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_NAMED_CONNECTION" PARM_VALUE="Helsinki_osm"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_SPATIAL_COLUMN_NAME" PARM_VALUE="geom"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_SPATIAL_COLUMN_TYPE" PARM_VALUE="geometry"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_START_TRANSACTION" PARM_VALUE="0"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_STRICT_TEMPORAL_TYPE_HANDLING" PARM_VALUE="Yes"/>
+#!     <XFORM_PARM PARM_NAME="POSTGIS_TRANSACTION_INTERVAL" PARM_VALUE="1000"/>
+#!     <XFORM_PARM PARM_NAME="SELECTED_PORTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="SUMMARY_ATTRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TOTAL_FEATURES_WRITTEN_ATTR" PARM_VALUE="_total_features_written"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WRITER_DIRECTIVES" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WRITER_FEATURE_TYPE_PARAMS" PARM_VALUE="weather_data_stations:OUTPUT,ftp_feature_type_name,weather_data_stations,ftp_writer,POSTGIS,ftp_dynamic_schema,no,ftp_dynamic_feature_type_name_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_geometry_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_schema_def_name_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_schema_sources,&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;,ftp_attribute_source,1,ftp_user_attributes,gfid&lt;comma&gt;varchar&lt;lt&gt;openparen&lt;gt&gt;200&lt;lt&gt;closeparen&lt;gt&gt;,ftp_format_parameters,fme_configuration_group&lt;comma&gt;&lt;comma&gt;fme_configuration_common_group&lt;comma&gt;&lt;comma&gt;fme_feature_operation&lt;comma&gt;INSERT&lt;comma&gt;fme_table_handling&lt;comma&gt;DROP_CREATE&lt;comma&gt;fme_update_geometry&lt;comma&gt;&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;&lt;comma&gt;fme_selection_group&lt;comma&gt;&lt;comma&gt;fme_selection_method&lt;comma&gt;&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;&lt;comma&gt;fme_match_columns&lt;comma&gt;&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;&lt;comma&gt;fme_where_builder_clause&lt;comma&gt;&lt;lt&gt;lt&lt;gt&gt;Unused&lt;lt&gt;gt&lt;gt&gt;&lt;comma&gt;fme_table_creation_group&lt;comma&gt;&lt;comma&gt;postgis_create_with_oids&lt;comma&gt;NO&lt;comma&gt;postgis_create_gist_index&lt;comma&gt;YES&lt;comma&gt;fme_spatial_group&lt;comma&gt;&lt;comma&gt;postgis_spatial_column_type&lt;comma&gt;geometry&lt;comma&gt;postgis_spatial_column&lt;comma&gt;geom&lt;comma&gt;postgis_srid&lt;comma&gt;&lt;comma&gt;fme_advanced_group&lt;comma&gt;FME_DISCLOSURE_OPEN&lt;comma&gt;postgis_vacuum_analyze&lt;comma&gt;NO&lt;comma&gt;postgis_allow_serial_writing&lt;comma&gt;NO"/>
+#!     <XFORM_PARM PARM_NAME="WRITER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="WRITER_METAFILE" PARM_VALUE="ATTRIBUTE_CASE,LOWER,ATTRIBUTE_INVALID_CHARS,.&lt;space&gt;%-#&lt;openbracket&gt;&lt;closebracket&gt;&lt;quote&gt;&lt;openparen&gt;&lt;closeparen&gt;!?*&lt;apos&gt;&lt;amp&gt;+&lt;backslash&gt;&lt;solidus&gt;,ATTRIBUTE_LENGTH,63,ATTR_TYPE_MAP,bool&lt;comma&gt;fme_boolean&lt;comma&gt;char&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;fme_char&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;varchar&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;fme_varchar&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;text&lt;comma&gt;fme_buffer&lt;comma&gt;xml&lt;comma&gt;fme_xml&lt;comma&gt;json&lt;comma&gt;fme_json&lt;comma&gt;jsonb&lt;comma&gt;fme_json&lt;comma&gt;bytea&lt;comma&gt;fme_binarybuffer&lt;comma&gt;bytea&lt;comma&gt;fme_varbinary&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;bytea&lt;comma&gt;fme_binary&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;int2&lt;comma&gt;fme_int16&lt;comma&gt;int2&lt;comma&gt;fme_int8&lt;comma&gt;int2&lt;comma&gt;fme_uint8&lt;comma&gt;int4&lt;comma&gt;fme_int32&lt;comma&gt;int4&lt;comma&gt;fme_uint16&lt;comma&gt;int8&lt;comma&gt;fme_int64&lt;comma&gt;int8&lt;comma&gt;fme_uint32&lt;comma&gt;&lt;quote&gt;numeric&lt;openparen&gt;width&lt;comma&gt;decimal&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;&lt;quote&gt;fme_decimal&lt;openparen&gt;width&lt;comma&gt;decimal&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;&lt;quote&gt;numeric&lt;openparen&gt;20&lt;comma&gt;0&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;fme_uint64&lt;comma&gt;oid&lt;comma&gt;fme_uint32&lt;comma&gt;serial&lt;comma&gt;fme_int32&lt;comma&gt;float4&lt;comma&gt;fme_real32&lt;comma&gt;money&lt;comma&gt;fme_real32&lt;comma&gt;float8&lt;comma&gt;fme_real64&lt;comma&gt;date&lt;comma&gt;fme_date&lt;comma&gt;time&lt;comma&gt;fme_time&lt;comma&gt;timetz&lt;comma&gt;fme_time&lt;comma&gt;timestamp&lt;comma&gt;fme_datetime&lt;comma&gt;timestamptz&lt;comma&gt;fme_datetime&lt;comma&gt;uuid&lt;comma&gt;fme_buffer&lt;comma&gt;bit&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;fme_char&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;varbit&lt;comma&gt;fme_buffer&lt;comma&gt;varbit&lt;openparen&gt;width&lt;closeparen&gt;&lt;comma&gt;fme_varchar&lt;openparen&gt;width&lt;closeparen&gt;,DEST_ILLEGAL_ATTR_LIST,FME_DB_OPERATION&lt;comma&gt;FME_DB_TRANSACTION&lt;comma&gt;FME_FEATURE_OPERATION&lt;comma&gt;POSTGIS_TRUNCATE_TABLE&lt;comma&gt;FME_TABLE_HANDLING&lt;comma&gt;FME_SELECTION_METHOD&lt;comma&gt;FME_MATCH_COLUMNS&lt;comma&gt;FME_WHERE_BUILDER_CLAUSE&lt;comma&gt;FME_MATCH_ID_ATTRIBUTE&lt;comma&gt;FME_MATCH_REVISION_ATTRIBUTE&lt;comma&gt;FME_UPDATE_GEOMETRY&lt;comma&gt;POSTGIS_TYPE&lt;comma&gt;POSTGIS_MODE&lt;comma&gt;POSTGIS_SQL_KEY_COLUMNS&lt;comma&gt;POSTGIS_GEOMETRY_COLUMN&lt;comma&gt;POSTGIS_SPATIAL_COLUMN&lt;comma&gt;POSTGIS_DROP_TABLE&lt;comma&gt;POSTGIS_SPATIAL_COLUMN_TYPE&lt;comma&gt;POSTGIS_SRID&lt;comma&gt;POSTGIS_CREATE_WITH_OIDS&lt;comma&gt;POSTGIS_CREATE_GIST_INDEX&lt;comma&gt;POSTGIS_VACUUM_ANALYZE&lt;comma&gt;POSTGIS_ALLOW_SERIAL_WRITING&lt;comma&gt;POSTGIS_MULTI_GEOMETRY,FEATURE_TYPE_CASE,ANY,FEATURE_TYPE_INVALID_CHARS,&lt;backslash&gt;&lt;backslash&gt;&lt;solidus&gt;&lt;quote&gt;:?*&lt;lt&gt;&lt;gt&gt;|&lt;openbracket&gt;%#&lt;space&gt;&lt;apos&gt;&lt;amp&gt;+&lt;closebracket&gt;,FEATURE_TYPE_LENGTH,63,FEATURE_TYPE_LENGTH_INCLUDES_PREFIX,false,FEATURE_TYPE_RESERVED_WORDS,,FORMAT_METAFILE,$(FME_HOME_ENCODED)metafile&lt;backslash&gt;POSTGIS.fmf,FORMAT_NAME,POSTGIS,GEOM_MAP,postgis_multipoint&lt;comma&gt;fme_point&lt;comma&gt;postgis_point&lt;comma&gt;fme_point&lt;comma&gt;postgis_multilinestring&lt;comma&gt;fme_line&lt;comma&gt;postgis_multicurve&lt;comma&gt;fme_line&lt;comma&gt;postgis_linestring&lt;comma&gt;fme_line&lt;comma&gt;postgis_line&lt;comma&gt;fme_line&lt;comma&gt;postgis_circularstring&lt;comma&gt;fme_line&lt;comma&gt;postgis_compoundcurve&lt;comma&gt;fme_line&lt;comma&gt;postgis_multipolygon&lt;comma&gt;fme_polygon&lt;comma&gt;postgis_multisurface&lt;comma&gt;fme_polygon&lt;comma&gt;postgis_polygon&lt;comma&gt;fme_polygon&lt;comma&gt;postgis_area&lt;comma&gt;fme_polygon&lt;comma&gt;postgis_curvepolygon&lt;comma&gt;fme_polygon&lt;comma&gt;postgis_multipolygon&lt;comma&gt;fme_rectangle&lt;comma&gt;postgis_multipolygon&lt;comma&gt;fme_rounded_rectangle&lt;comma&gt;postgis_multipoint&lt;comma&gt;fme_text&lt;comma&gt;postgis_multipolygon&lt;comma&gt;fme_ellipse&lt;comma&gt;postgis_multilinestring&lt;comma&gt;fme_arc&lt;comma&gt;postgis_triangle&lt;comma&gt;fme_polygon&lt;comma&gt;postgis_polyhedralsurface&lt;comma&gt;fme_surface&lt;comma&gt;postgis_polyhedralsurface&lt;comma&gt;fme_solid&lt;comma&gt;postgis_tin&lt;comma&gt;fme_surface&lt;comma&gt;postgis_none&lt;comma&gt;fme_no_geom&lt;comma&gt;postgis_geometry&lt;comma&gt;fme_no_geom&lt;comma&gt;postgis_geometrycollection&lt;comma&gt;fme_collection&lt;comma&gt;postgis_multipolygon&lt;comma&gt;fme_raster&lt;comma&gt;postgis_multipolygon&lt;comma&gt;fme_point_cloud&lt;comma&gt;postgis_none&lt;comma&gt;fme_feature_table,READER_ATTR_INDEX_TYPES,BTree&lt;comma&gt;RTree&lt;comma&gt;Hash&lt;comma&gt;PrimaryKey,SOURCE,no,SUPPORTS_FEAT_TYPE_FANOUT,yes,SUPPORTS_MULTI_GEOM,yes,WORKBENCH_CANNED_SCHEMA,,WRITER,POSTGIS,WRITER_ATTR_INDEX_TYPES,BTree&lt;comma&gt;RTree&lt;comma&gt;Hash&lt;comma&gt;PrimaryKey,WRITER_DEFLINE_PARMS,&lt;quote&gt;GUI&lt;space&gt;NAMEDGROUP&lt;space&gt;fme_configuration_group&lt;space&gt;fme_configuration_common_group%fme_spatial_group%fme_advanced_group%oracle_advanced_group&lt;space&gt;Table&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;NAMEDGROUP&lt;space&gt;fme_configuration_common_group&lt;space&gt;fme_feature_operation%fme_table_handling%oracle_model%fme_update_geometry%fme_selection_group%fme_table_creation_group&lt;space&gt;General&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;ACTIVECHOICE_LOOKUP&lt;space&gt;fme_feature_operation&lt;space&gt;Insert&lt;comma&gt;INSERT&lt;comma&gt;fme_update_geometry&lt;comma&gt;fme_selection_group%Update&lt;comma&gt;UPDATE&lt;comma&gt;++fme_table_handling+USE_EXISTING&lt;comma&gt;++fme_selection_group+FME_DISCLOSURE_OPEN%Delete&lt;comma&gt;DELETE&lt;comma&gt;++fme_table_handling+USE_EXISTING&lt;comma&gt;fme_update_geometry&lt;comma&gt;++fme_selection_group+FME_DISCLOSURE_OPEN&lt;comma&gt;fme_spatial_group&lt;comma&gt;fme_advanced_group&lt;comma&gt;oracle_sequenced_cols%&lt;lt&gt;at&lt;gt&gt;Value&lt;lt&gt;openparen&lt;gt&gt;fme_db_operation&lt;lt&gt;closeparen&lt;gt&gt;&lt;comma&gt;MULTIPLE&lt;comma&gt;++fme_table_handling+USE_EXISTING&lt;comma&gt;++fme_selection_group+FME_DISCLOSURE_OPEN&lt;space&gt;Feature&lt;space&gt;Operation&lt;quote&gt;&lt;comma&gt;INSERT&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;ACTIVECHOICE_LOOKUP&lt;space&gt;fme_table_handling&lt;space&gt;Use&lt;lt&gt;space&lt;gt&gt;Existing&lt;comma&gt;USE_EXISTING&lt;comma&gt;fme_table_creation_group%Create&lt;lt&gt;space&lt;gt&gt;If&lt;lt&gt;space&lt;gt&gt;Needed&lt;comma&gt;CREATE_IF_MISSING%Drop&lt;lt&gt;space&lt;gt&gt;and&lt;lt&gt;space&lt;gt&gt;Create&lt;comma&gt;DROP_CREATE%Truncate&lt;lt&gt;space&lt;gt&gt;Existing&lt;comma&gt;TRUNCATE_EXISTING&lt;comma&gt;fme_table_creation_group&lt;space&gt;Table&lt;space&gt;Handling&lt;quote&gt;&lt;comma&gt;CREATE_IF_MISSING&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;WHOLE_LINE&lt;space&gt;LOOKUP_CHOICE&lt;space&gt;fme_update_geometry&lt;space&gt;Yes&lt;comma&gt;YES%No&lt;comma&gt;NO&lt;space&gt;Update&lt;space&gt;Spatial&lt;space&gt;Column&lt;openparen&gt;s&lt;closeparen&gt;&lt;quote&gt;&lt;comma&gt;YES&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;DISCLOSUREGROUP&lt;space&gt;fme_selection_group&lt;space&gt;fme_selection_method&lt;space&gt;Row&lt;space&gt;Selection&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;WHOLE_LINE&lt;space&gt;RADIOPARAMETERGROUP&lt;space&gt;fme_selection_method&lt;space&gt;fme_match_columns&lt;comma&gt;MATCH_COLUMNS%fme_where_builder_clause&lt;comma&gt;BUILDER&lt;space&gt;Row&lt;space&gt;Selection&lt;space&gt;Method&lt;quote&gt;&lt;comma&gt;MATCH_COLUMNS&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;WHOLE_LINE&lt;space&gt;ATTRLIST_COMMAS&lt;space&gt;fme_match_columns&lt;space&gt;Match&lt;space&gt;Columns&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;WHOLE_LINE&lt;space&gt;TEXT_EDIT_SQL_CFG_OR_ATTR&lt;space&gt;fme_where_builder_clause&lt;space&gt;MODE&lt;comma&gt;WHERE&lt;space&gt;WHERE&lt;space&gt;Clause&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;DISCLOSUREGROUP&lt;space&gt;fme_table_creation_group&lt;space&gt;postgis_create_with_oids%postgis_create_gist_index&lt;space&gt;Table&lt;space&gt;Creation&lt;space&gt;Parameters&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;CHOICE&lt;space&gt;postgis_create_with_oids&lt;space&gt;YES%NO&lt;space&gt;Create&lt;space&gt;With&lt;space&gt;OIDs&lt;quote&gt;&lt;comma&gt;NO&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;CHOICE&lt;space&gt;postgis_create_gist_index&lt;space&gt;YES%NO&lt;space&gt;Create&lt;space&gt;GiST&lt;space&gt;Index&lt;quote&gt;&lt;comma&gt;YES&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;NAMEDGROUP&lt;space&gt;fme_spatial_group&lt;space&gt;postgis_spatial_column_type%postgis_spatial_column%postgis_srid&lt;space&gt;Spatial&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;LOOKUP_CHOICE&lt;space&gt;postgis_spatial_column_type&lt;space&gt;Geometry&lt;comma&gt;geometry%Geography&lt;comma&gt;geography&lt;space&gt;Spatial&lt;space&gt;Type&lt;quote&gt;&lt;comma&gt;geometry&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;OPTIONAL&lt;space&gt;WHOLE_LINE&lt;space&gt;TEXT&lt;space&gt;postgis_spatial_column&lt;space&gt;Spatial&lt;space&gt;Column&lt;quote&gt;&lt;comma&gt;geom&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;OPTIONAL&lt;space&gt;FLOAT&lt;space&gt;postgis_srid&lt;space&gt;Spatial&lt;space&gt;Column&lt;space&gt;SRID&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;DISCLOSUREGROUP&lt;space&gt;fme_advanced_group&lt;space&gt;postgis_vacuum_analyze%postgis_allow_serial_writing&lt;space&gt;Advanced&lt;quote&gt;&lt;comma&gt;&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;CHOICE&lt;space&gt;postgis_vacuum_analyze&lt;space&gt;YES%NO&lt;space&gt;Vacuum&lt;space&gt;Analyze&lt;space&gt;Table&lt;quote&gt;&lt;comma&gt;NO&lt;comma&gt;&lt;quote&gt;GUI&lt;space&gt;CHOICE&lt;space&gt;postgis_allow_serial_writing&lt;space&gt;YES%NO&lt;space&gt;Allow&lt;space&gt;Serial&lt;space&gt;Column&lt;space&gt;Writing&lt;quote&gt;&lt;comma&gt;NO,WRITER_DEF_LINE_TEMPLATE,&lt;opencurly&gt;FME_GEN_GROUP_NAME&lt;closecurly&gt;&lt;comma&gt;postgis_type&lt;comma&gt;postgis_geometry&lt;comma&gt;postgis_mode&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;postgis_sql_key_columns&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;postgis_drop_table&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;postgis_truncate_table&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;fme_feature_operation&lt;comma&gt;INSERT&lt;comma&gt;fme_table_handling&lt;comma&gt;CREATE_IF_MISSING&lt;comma&gt;fme_selection_method&lt;comma&gt;MATCH_COLUMNS&lt;comma&gt;fme_match_columns&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;fme_where_builder_clause&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;fme_update_geometry&lt;comma&gt;YES&lt;comma&gt;postgis_create_with_oids&lt;comma&gt;NO&lt;comma&gt;postgis_create_gist_index&lt;comma&gt;YES&lt;comma&gt;postgis_spatial_column_type&lt;comma&gt;geometry&lt;comma&gt;postgis_spatial_column&lt;comma&gt;geom&lt;comma&gt;postgis_srid&lt;comma&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;quote&gt;&lt;comma&gt;postgis_vacuum_analyze&lt;comma&gt;no&lt;comma&gt;postgis_allow_serial_writing&lt;comma&gt;NO,WRITER_FORMAT_PARAMETER,NETWORK_AUTHENTICATION&lt;comma&gt;NO&lt;comma&gt;NETWORK_PROXY&lt;comma&gt;NO&lt;comma&gt;ADVANCED_PARMS&lt;comma&gt;POSTGIS_IN_SCHEMAS_FOR_TABLE_LISTING&lt;comma&gt;DATASET_NAME&lt;comma&gt;Database&lt;comma&gt;FEATURE_TYPE_NAME&lt;comma&gt;Table&lt;comma&gt;FEATURE_TYPE_DEFAULT_NAME&lt;comma&gt;Table1&lt;comma&gt;SUPPORTS_SCHEMA_IN_FEATURE_TYPE_NAME&lt;comma&gt;YES&lt;comma&gt;ATTRIBUTE_READING&lt;comma&gt;DEFLINE_ATTRS&lt;comma&gt;ATTRIBUTE_READING_HISTORIC&lt;comma&gt;ALL&lt;comma&gt;ADVANCED_PARMS&lt;comma&gt;&lt;quote&gt;POSTGIS_IN_FEATURES_PER_FETCH&lt;space&gt;POSTGIS_IN_BEGIN_SQL&lt;space&gt;POSTGIS_IN_END_SQL&lt;space&gt;POSTGIS_IN_SEARCH_METHOD&lt;space&gt;POSTGIS_OUT_BULK_COPY&lt;space&gt;POSTGIS_OUT_INSERT_TEXT_GEOMETRY&lt;space&gt;POSTGIS_OUT_TRANSACTION_INTERVAL&lt;space&gt;POSTGIS_OUT_BEGIN_SQL&lt;space&gt;POSTGIS_OUT_END_SQL&lt;quote&gt;,WRITER_HAS_DEFLINE_ATTRS,yes"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureWriter"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="28"
+#!   TYPE="Inspector"
+#!   VERSION="5"
+#!   POSITION="7265 1705"
+#!   BOUNDING_RECT="7265 1705 -1 -1"
+#!   ORDER="500000000000017"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <XFORM_PARM PARM_NAME="AREA_COLOR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PEN_COLOR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POINTCLOUD_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="RASTER_NUM_COLS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="RASTER_NUM_ROWS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="RASTER_START_COL" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="RASTER_START_ROW" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="RASTER_VISUALIZATION_OPTION" PARM_VALUE="No Reduction"/>
+#!     <XFORM_PARM PARM_NAME="TACKATTRS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="THINNER_INTERVAL" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="THINNER_MAX_NUM_POINTS" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="THINNER_TYPE_DISPLAY" PARM_VALUE="No Thinning"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="VECTOR_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureReader__Rejected_"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="24"
+#!   TYPE="GeometryExtractor"
+#!   VERSION="14"
+#!   POSITION="5911 645.5"
+#!   BOUNDING_RECT="5911 645.5 -1 -1"
+#!   ORDER="500000000000006"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ATTR" PARM_VALUE="_geometry"/>
+#!     <XFORM_PARM PARM_NAME="ELLIPSOID_NAME" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GEOHASH_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="GEOHASH_PRECISION_DISPLAY" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ISO6709_FORMAT_CHOICE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="ISO6709_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ISO6709_MAX_DECIMAL_PLACES" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="JSON_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="JSON_MAX_DIGITS" PARM_VALUE="7"/>
+#!     <XFORM_PARM PARM_NAME="KIND_LONG" PARM_VALUE="GeoJSON"/>
+#!     <XFORM_PARM PARM_NAME="LETTERING" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="LEVELS_ATTR" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="MGRS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MSSQL_FORMAT_CHOICE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="MSSQL_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OGCVERSION" PARM_VALUE="1.2"/>
+#!     <XFORM_PARM PARM_NAME="OGC_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="OGC_WKT_PRECISION_DISPLAY" PARM_VALUE="64-bit"/>
+#!     <XFORM_PARM PARM_NAME="OGEOSMS_URL_PREFIX" PARM_VALUE="http://maps.google.com/?q="/>
+#!     <XFORM_PARM PARM_NAME="OMIT_NAMESPACES_DISPLAY" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="POLYLINE_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PRECISION" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PREFER_POLYGON_OVER_SURFACE" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="REMOVE_GEOMETRY" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="GeometryExtractor_2"/>
+#!     <XFORM_PARM PARM_NAME="XML_GROUP" PARM_VALUE=""/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="37"
+#!   TYPE="FeatureMerger"
+#!   VERSION="17"
+#!   POSITION="6595.5 1498"
+#!   BOUNDING_RECT="6595.5 1498 -1 -1"
+#!   ORDER="500000000000022"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="MERGED"/>
+#!     <XFORM_ATTR ATTR_NAME="_ori_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="UNMERGED_REQUESTOR"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="_ori_geometry" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <OUTPUT_FEAT NAME="USED_SUPPLIER"/>
+#!     <FEAT_COLLAPSED COLLAPSED="2"/>
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <XFORM_ATTR ATTR_NAME="numReferences" IS_USER_CREATED="false" FEAT_INDEX="2" />
+#!     <OUTPUT_FEAT NAME="UNUSED_SUPPLIER"/>
+#!     <FEAT_COLLAPSED COLLAPSED="3"/>
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="3" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="4"/>
+#!     <XFORM_ATTR ATTR_NAME="_ori_geometry" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="4" />
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_GROUP" PARM_VALUE="FME_DISCLOSURE_OPEN"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Merge Supplier"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_VALUE="Use Requestor"/>
+#!     <XFORM_PARM PARM_NAME="CLEANING_TOLERANCE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="CONNECT_Z_MODE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="GENERATE_LIST_GROUP" PARM_VALUE="NO"/>
+#!     <XFORM_PARM PARM_NAME="GEOM_TYPE" PARM_VALUE="Build Aggregates"/>
+#!     <XFORM_PARM PARM_NAME="GROUP_BY" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="IGNORE_NULLS" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="JOIN_ATTRIBUTES_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="JOIN_KEYS" PARM_VALUE="&lt;at&gt;Value&lt;openparen&gt;_ori_geometry&lt;closeparen&gt; &lt;at&gt;Value&lt;openparen&gt;_geometry&lt;closeparen&gt; AUTO"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS_TO_INCLUDE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTRS_TO_INCLUDE_MODE" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="LIST_NAME" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="MERGE_COUNT_ATTR" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="MERGE_TYPE" PARM_VALUE="Attributes Only"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PROCESS_DUPS" PARM_VALUE="YES"/>
+#!     <XFORM_PARM PARM_NAME="REJECT_NULL_MISSING_KEYS" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="SUPPLIERS_FIRST" PARM_VALUE="No"/>
+#!     <XFORM_PARM PARM_NAME="SUPPLIER_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="FeatureMerger"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="38"
+#!   TYPE="ListExploder"
+#!   VERSION="6"
+#!   POSITION="850 1883.5"
+#!   BOUNDING_RECT="850 1883.5 -1 -1"
+#!   ORDER="500000000000024"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="ELEMENTS"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result{}" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="result{}" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Merge List Attributes"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_VALUE="Use List Attribute Values"/>
+#!     <XFORM_PARM PARM_NAME="INCOMING_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="INDEX_ATTR" PARM_VALUE="_element_index"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTR" PARM_VALUE="timestep{}"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ListExploder"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="41"
+#!   TYPE="ListExploder"
+#!   VERSION="6"
+#!   POSITION="1540 1677.5"
+#!   BOUNDING_RECT="1540 1677.5 -1 -1"
+#!   ORDER="500000000000024"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="ELEMENTS"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <OUTPUT_FEAT NAME="&lt;REJECTED&gt;"/>
+#!     <FEAT_COLLAPSED COLLAPSED="1"/>
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_ATTR ATTR_NAME="fme_rejection_code" IS_USER_CREATED="false" FEAT_INDEX="1" />
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="ATTR_ACCUM_MODE" PARM_VALUE="Merge List Attributes"/>
+#!     <XFORM_PARM PARM_NAME="ATTR_CONFLICT_RES" PARM_VALUE="Use List Attribute Values"/>
+#!     <XFORM_PARM PARM_NAME="INCOMING_PREFIX" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="INDEX_ATTR" PARM_VALUE="_element_index"/>
+#!     <XFORM_PARM PARM_NAME="LIST_ATTR" PARM_VALUE="result{}"/>
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="ListExploder_2"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="43"
+#!   TYPE="GeometryRemover"
+#!   VERSION="0"
+#!   POSITION="7286 1318"
+#!   BOUNDING_RECT="7286 1318 -1 -1"
+#!   ORDER="500000000000027"
+#!   PARMS_EDITED="false"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="18590"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <XFORM_ATTR ATTR_NAME="_ori_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observationType" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="timestep" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="id" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="observedPropertyName" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="result" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_element_index" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="gfid" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_ATTR ATTR_NAME="_geometry" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="GeometryRemover"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="39"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="38"
+#!   SOURCE_PORT_DESC="-1"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="23"
+#!   SOURCE_NODE="4"
+#!   TARGET_NODE="20"
+#!   SOURCE_PORT_DESC="fo 0 UNIQUE"
+#!   TARGET_PORT_DESC="fi 0 INPUT"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="9"
+#!   SOURCE_NODE="10"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="18"
+#!   SOURCE_NODE="10"
+#!   TARGET_NODE="17"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="1"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="46"
+#!   SOURCE_NODE="17"
+#!   TARGET_NODE="37"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 REQUESTOR"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="27"
+#!   SOURCE_NODE="20"
+#!   TARGET_NODE="25"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 OUTPUT"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="26"
+#!   SOURCE_NODE="24"
+#!   TARGET_NODE="37"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 1 SUPPLIER"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="22"
+#!   SOURCE_NODE="25"
+#!   TARGET_NODE="14"
+#!   SOURCE_PORT_DESC="fo 0 SUMMARY"
+#!   TARGET_PORT_DESC="fi 0 INITIATOR"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="44"
+#!   SOURCE_NODE="37"
+#!   TARGET_NODE="43"
+#!   SOURCE_PORT_DESC="fo 0 MERGED"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="42"
+#!   SOURCE_NODE="38"
+#!   TARGET_NODE="41"
+#!   SOURCE_PORT_DESC="fo 0 ELEMENTS"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="40"
+#!   SOURCE_NODE="41"
+#!   TARGET_NODE="10"
+#!   SOURCE_PORT_DESC="fo 0 ELEMENTS"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="45"
+#!   SOURCE_NODE="43"
+#!   TARGET_NODE="47"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="-1"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="13"
+#!   SOURCE_NODE="10"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 1 &lt;lt&gt;REJECTED&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="30"
+#!   SOURCE_NODE="14"
+#!   TARGET_NODE="24"
+#!   SOURCE_PORT_DESC="fo 1 public.weather_data_stations"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="32"
+#!   SOURCE_NODE="24"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 1 &lt;lt&gt;REJECTED&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="48"
+#!   SOURCE_NODE="38"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 1 &lt;lt&gt;REJECTED&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="34"
+#!   SOURCE_NODE="41"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 1 &lt;lt&gt;REJECTED&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="29"
+#!   SOURCE_NODE="14"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 4 &lt;lt&gt;REJECTED&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="49"
+#!   SOURCE_NODE="37"
+#!   TARGET_NODE="28"
+#!   SOURCE_PORT_DESC="fo 4 &lt;lt&gt;REJECTED&lt;gt&gt;"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! <ATTR_LINK
+#!   IDENTIFIER="65581"
+#!   SOURCE_NODE="43"
+#!   TARGET_NODE="47"
+#!   SOURCE_PORT_DESC="ao 0 4 OUTPUT"
+#!   TARGET_PORT_DESC="0"
+#! />
+#! </ATTR_LINKS>
+#! <SUBDOCUMENTS>
+#! <SUBDOCUMENT
+#!   NAME="GUIDGenerator"
+#!   CATEGORY="Strings"
+#!   DESCRIPTION="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Creates an ESRI GUID ID by creating a UUID enclosed by curly {}. &lt;/p&gt;&#10;"
+#!   DOC_DYNAMIC_INPUT_ATTRS="0"
+#!   DOC_EXTENTS="1763 173"
+#!   DOC_TOP_LEFT="37 -173"
+#!   FME_DOCUMENT_GUID="4ed7c886-cb8c-11e5-b555-a45e60ee7e79"
+#!   FME_DOCUMENT_PRIORGUID="450a1b90-cb89-11e5-8a24-a45e60ee7e79"
+#!   FME_PROCESS_COUNT="NO_PARALLELISM"
+#!   FME_PROCESS_GROUPS_ORDERED="No"
+#!   FME_PROCESS_GROUP_BY=""
+#!   FMX_ATTRIBUTE_PROPOGATION_MODE="AUTO"
+#!   GUID="4ed7c886-cb8c-11e5-b555-a45e60ee7e79"
+#!   HISTORY=",Mita&lt;space&gt;Hajirakar,Original&lt;space&gt;Implementation,2016-02-04,Gerhard&lt;space&gt;Fischl,Compatibility&lt;space&gt;Update&lt;space&gt;for&lt;space&gt;FME&lt;space&gt;2016"
+#!   IS_VISIBLE="false"
+#!   LAST_SAVE_BUILD="FME(R) 2016.0.1.0 (20160130 - Build 16174 - macosx)"
+#!   LAST_SAVE_DATE="2016-02-04T14:11:58"
+#!   MARKDOWN_DESCRIPTION=""
+#!   MARKDOWN_USAGE=""
+#!   PYTHON_COMPATIBILITY=""
+#!   SUPPRESS_UPGRADE="false"
+#!   TITLE="GUIDGenerator"
+#!   USAGE="&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;span style=&quot; font-weight:600;&quot;&gt;Input Ports&lt;/span&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;span style=&quot; text-decoration: underline;&quot;&gt;Input&lt;/span&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Accepts all types of features&lt;/p&gt;&#10;&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;br/&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;span style=&quot; font-weight:600;&quot;&gt;Output Ports&lt;/span&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&#10;    &lt;span style=&quot; text-decoration: underline;&quot;&gt;Output&lt;/span&gt;&#10;&lt;/p&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Returns all features with an additional GFID attribute &lt;/p&gt;&#10;"
+#!   USE_MARKDOWN=""
+#!   VIEW_POSITION="-6.00006 0"
+#!   XFORM_DEPRECATED="No"
+#!   ZOOM_SCALE="100"
+#! >
+#! <GLOBAL_PARAMETERS>
+#! </GLOBAL_PARAMETERS>
+#! <COMMENTS>
+#! <COMMENT
+#!   IDENTIFIER="9"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica neue&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Create UUID&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="600 0"
+#!   TOP_LEFT="600 0"
+#!   BOTTOM_RIGHT="600 0"
+#!   BOUNDING_RECT="600 0 0 0"
+#!   ORDER="7"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.78431372549019607,0.19215686274509805"
+#!   SIZE_POLICY="8"
+#!   ANCHORED_NODE="4"
+#! />
+#! <COMMENT
+#!   IDENTIFIER="10"
+#!   COMMENT_VALUE="&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;&#10;&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;&#10;p, li { white-space: pre-wrap; }&#10;&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;helvetica neue&apos;; font-size:13pt; font-weight:400; font-style:normal;&quot;&gt;&#10;&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enclose the UUID by {}&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;"
+#!   POSITION="1200 0"
+#!   TOP_LEFT="1200 0"
+#!   BOTTOM_RIGHT="1200 0"
+#!   BOUNDING_RECT="1200 0 0 0"
+#!   ORDER="8"
+#!   FOLLOW_ANCHOR="true"
+#!   INFO_NODE="false"
+#!   COLOUR="1,1,0.78431372549019607,0.19215686274509805"
+#!   SIZE_POLICY="8"
+#!   ANCHORED_NODE="5"
+#! />
+#! </COMMENTS>
+#! <CONSTANTS>
+#! </CONSTANTS>
+#! <BOOKMARKS>
+#! </BOOKMARKS>
+#! <TRANSFORMERS>
+#! <TRANSFORMER
+#!   IDENTIFIER="4"
+#!   TYPE="UUIDGenerator"
+#!   VERSION="0"
+#!   POSITION="600 -150"
+#!   BOUNDING_RECT="600 -150 0 0"
+#!   ORDER="5"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="13450"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="GFID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="PARAMETERS_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="UUID_ATTR" PARM_VALUE="GFID"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="UUIDGENERATOR_2"/>
+#! </TRANSFORMER>
+#! <TRANSFORMER
+#!   IDENTIFIER="5"
+#!   TYPE="StringConcatenator"
+#!   VERSION="7"
+#!   POSITION="1200 -150"
+#!   BOUNDING_RECT="1200 -150 0 0"
+#!   ORDER="4"
+#!   PARMS_EDITED="true"
+#!   ENABLED="true"
+#!   LAST_PARM_EDIT="16174"
+#! >
+#!     <OUTPUT_FEAT NAME="OUTPUT"/>
+#!     <FEAT_COLLAPSED COLLAPSED="0"/>
+#!     <XFORM_ATTR ATTR_NAME="GFID" IS_USER_CREATED="false" FEAT_INDEX="0" />
+#!     <XFORM_PARM PARM_NAME="ACTION" PARM_VALUE="Create New Attribute"/>
+#!     <XFORM_PARM PARM_NAME="ATTRLIST" PARM_VALUE="&lt;Unused&gt;"/>
+#!     <XFORM_PARM PARM_NAME="PARAM_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="PARM_LINE" PARM_VALUE="&lt;opencurly&gt;&lt;at&gt;Value&lt;openparen&gt;GFID&lt;closeparen&gt;&lt;closecurly&gt;"/>
+#!     <XFORM_PARM PARM_NAME="TRANSFORMER_GROUP" PARM_VALUE=""/>
+#!     <XFORM_PARM PARM_NAME="VAL_ATTR" PARM_VALUE="GFID"/>
+#!     <XFORM_PARM PARM_NAME="XFORMER_NAME" PARM_VALUE="CONCATENATOR_2"/>
+#! </TRANSFORMER>
+#! </TRANSFORMERS>
+#! <SUBDOCUMENT_IOS>
+#! <SUBDOCUMENT_IO
+#!   IDENTIFIER="2"
+#!   NAME="INPUT"
+#!   POSITION="37 -173"
+#!   BOUNDING_RECT="37 -173 0 0"
+#!   COLLAPSED="false"
+#!   PUBLISHED="true"
+#!   IS_SOURCE="true"
+#!   ATTR_MODE="0"
+#! >
+#! </SUBDOCUMENT_IO>
+#! <SUBDOCUMENT_IO
+#!   IDENTIFIER="3"
+#!   NAME="OUTPUT"
+#!   POSITION="1800 -150"
+#!   BOUNDING_RECT="1800 -150 0 0"
+#!   COLLAPSED="false"
+#!   IS_SOURCE="false"
+#!   ATTR_MODE="0"
+#! >
+#! </SUBDOCUMENT_IO>
+#! </SUBDOCUMENT_IOS>
+#! <FEAT_LINKS>
+#! <FEAT_LINK
+#!   IDENTIFIER="7"
+#!   SOURCE_NODE="2"
+#!   TARGET_NODE="4"
+#!   SOURCE_PORT_DESC="0"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="6"
+#!   SOURCE_NODE="4"
+#!   TARGET_NODE="5"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="fi 0 "
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! <FEAT_LINK
+#!   IDENTIFIER="8"
+#!   SOURCE_NODE="5"
+#!   TARGET_NODE="3"
+#!   SOURCE_PORT_DESC="fo 0 OUTPUT"
+#!   TARGET_PORT_DESC="0"
+#!   ENABLED="true"
+#!   EXECUTION_IDX="0"
+#!   HIDDEN="false"
+#!   EXTRA_POINTS=""
+#! />
+#! </FEAT_LINKS>
+#! <BREAKPOINTS>
+#! </BREAKPOINTS>
+#! <ATTR_LINKS>
+#! </ATTR_LINKS>
+#! </SUBDOCUMENT>
+#! </SUBDOCUMENTS>
+#! <LOOKUP_TABLES>
+#! </LOOKUP_TABLES>
+#! </WORKSPACE>
+
+FME_PYTHON_VERSION 27
+GUI IGNORE SourceDataset_GEOJSON_1,GEOJSON_IN_USE_SEARCH_ENVELOPE_GEOJSON_1,GEOJSON_IN_SEARCH_ENVELOPE_MINX_GEOJSON_1,GEOJSON_IN_SEARCH_ENVELOPE_MINY_GEOJSON_1,GEOJSON_IN_SEARCH_ENVELOPE_MAXX_GEOJSON_1,GEOJSON_IN_SEARCH_ENVELOPE_MAXY_GEOJSON_1,GEOJSON_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_GEOJSON_1,GEOJSON_IN_CLIP_TO_ENVELOPE_GEOJSON_1,GEOJSON_IN_NETWORK_AUTHENTICATION_GEOJSON_1,DestDataset_POSTGRES_1,POSTGRES_OUT_FME_CONNECTION_GROUP_POSTGRES_1,POSTGRES_OUT_ADVANCED_POSTGRES_1,POSTGRES_OUT_BULK_COPY_POSTGRES_1,POSTGRES_OUT_START_TRANSACTION_POSTGRES_1,POSTGRES_OUT_TRANSACTION_INTERVAL_POSTGRES_1,POSTGRES_OUT_BEGIN_SQL_POSTGRES_1,POSTGRES_OUT_END_SQL_POSTGRES_1
+DEFAULT_MACRO SourceDataset_GEOJSON $(FME_MF_DIR)Weather_Data_all_20200109T140000Z.json
+GUI FILE_OR_URL SourceDataset_GEOJSON GeoJSON_Documents(*.json;*.geojson)|*.json;*.geojson|All_Files|* Source GeoJSON File or URL:
+DEFAULT_MACRO DestDataset_POSTGRES Helsinki_osm
+GUI NAMED_DB_CONNECTION_ENCODED DestDataset_POSTGRES FMT:POSTGRES%FAMILY:PostgreSQL Connection:
+INCLUDE [ if {{$(SourceDataset_GEOJSON)} == {}} { puts_real {Parameter 'SourceDataset_GEOJSON' must be given a value.}; exit 1; }; ]
+INCLUDE [ if {{$(DestDataset_POSTGRES)} == {}} { puts_real {Parameter 'DestDataset_POSTGRES' must be given a value.}; exit 1; }; ]
+#! START_HEADER
+#! START_WB_HEADER
+READER_TYPE MULTI_READER
+MULTI_READER_TYPE{0} GEOJSON
+MULTI_READER_KEYWORD{0} GEOJSON_1
+MULTI_READER_GEN_DIRECTIVES{0} USE_SEARCH_ENVELOPE,NO,CLIP_TO_ENVELOPE,NO,FLATTEN_MODE,ALL_LEVELS,SEARCH_ENVELOPE_COORDINATE_SYSTEM,,USE_BASENAME_AS_DEFAULT_FEATURE_TYPE,Yes,SEARCH_ENVELOPE_MINX,0,SEARCH_ENVELOPE_MINY,0,EXPOSE_ATTRS_GROUP,,GEOJSON_EXPOSE_FORMAT_ATTRS,,SEARCH_ENVELOPE_MAXX,0,SEARCH_ENVELOPE_MAXY,0,_MERGE_SCHEMAS,YES
+WRITER_TYPE MULTI_WRITER
+MULTI_WRITER_DATASET_ORDER BY_ID
+MULTI_WRITER_FIRST_WRITER_ID 0
+MULTI_WRITER_TYPE{0} POSTGRES
+MULTI_WRITER_KEYWORD{0} POSTGRES_1
+#! END_WB_HEADER
+#! START_WB_HEADER
+MACRO WB_KEYWORD "GEOJSON_1"
+#! END_WB_HEADER
+#! START_SOURCE_HEADER GEOJSON GEOJSON_1
+# The dataset this mapping file was generated from was:
+#! END_SOURCE_HEADER
+#! START_WB_HEADER
+DEFAULT_MACRO SourceDataset
+INCLUDE [ if {{$(SourceDataset)} != ""} {                        \
+ puts {DEFAULT_MACRO SourceDataset_GEOJSON_1 $(SourceDataset)}     \
+ } ]
+#! END_WB_HEADER
+#! START_SOURCE_HEADER GEOJSON GEOJSON_1
+DEFAULT_MACRO SourceDataset_GEOJSON_1 $(SourceDataset_GEOJSON)
+GUI FILE_OR_URL SourceDataset_GEOJSON_1 GeoJSON_Documents(*.json;*.geojson)|*.json;*.geojson|All_Files|* Source GeoJSON File or URL:
+DEFAULT_MACRO GEOJSON_IN_FLATTEN_MODE_GEOJSON_1 ALL_LEVELS
+GEOJSON_1_FLATTEN_MODE "$(GEOJSON_IN_FLATTEN_MODE_GEOJSON_1)"
+DEFAULT_MACRO GEOJSON_IN_EXPOSE_ATTRS_GROUP_GEOJSON_1 
+GEOJSON_1_EXPOSE_ATTRS_GROUP "$(GEOJSON_IN_EXPOSE_ATTRS_GROUP_GEOJSON_1)"
+DEFAULT_MACRO GEOJSON_IN_USE_BASENAME_AS_DEFAULT_FEATURE_TYPE_GEOJSON_1 Yes
+GEOJSON_1_USE_BASENAME_AS_DEFAULT_FEATURE_TYPE "$(GEOJSON_IN_USE_BASENAME_AS_DEFAULT_FEATURE_TYPE_GEOJSON_1)"
+# Include this file in source setting section to add external search envelope processing
+# Zero as a default means we don't do any search -- this makes workbench happier
+DEFAULT_MACRO GEOJSON_IN_USE_SEARCH_ENVELOPE_GEOJSON_1 NO
+GEOJSON_1_USE_SEARCH_ENVELOPE "$(GEOJSON_IN_USE_SEARCH_ENVELOPE_GEOJSON_1)"
+GUI ACTIVEDISCLOSUREGROUP GEOJSON_IN_USE_SEARCH_ENVELOPE_GEOJSON_1 GEOJSON_IN_SEARCH_ENVELOPE_MINX_GEOJSON_1%GEOJSON_IN_SEARCH_ENVELOPE_MINY_GEOJSON_1%GEOJSON_IN_SEARCH_ENVELOPE_MAXX_GEOJSON_1%GEOJSON_IN_SEARCH_ENVELOPE_MAXY_GEOJSON_1%GEOJSON_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_GEOJSON_1%GEOJSON_IN_CLIP_TO_ENVELOPE_GEOJSON_1%GEOJSON_IN_SEARCH_METHOD%GEOJSON_IN_SEARCH_METHOD_FILTER%GEOJSON_IN_SEARCH_ORDER%GEOJSON_IN_SEARCH_FEATURE%GEOJSON_IN_DUMMY_SEARCH_ENVELOPE_PARAMETER Use Search Envelope
+# ===========================================================================
+GUI LOOKUP GEOJSON_IN_SEARCH_ENVELOPE_MINX_GEOJSON_1 <Unused>,0 
+DEFAULT_MACRO GEOJSON_IN_SEARCH_ENVELOPE_MINX_GEOJSON_1 0
+GEOJSON_1_SEARCH_ENVELOPE "$(GEOJSON_IN_SEARCH_ENVELOPE_MINX_GEOJSON_1)"
+GUI OPTIONAL FLOAT GEOJSON_IN_SEARCH_ENVELOPE_MINX_GEOJSON_1 Minimum X:
+# ===========================================================================
+GUI LOOKUP GEOJSON_IN_SEARCH_ENVELOPE_MINY_GEOJSON_1 <Unused>,0 
+DEFAULT_MACRO GEOJSON_IN_SEARCH_ENVELOPE_MINY_GEOJSON_1 0
+GEOJSON_1_SEARCH_ENVELOPE "$(GEOJSON_IN_SEARCH_ENVELOPE_MINY_GEOJSON_1)"
+GUI OPTIONAL FLOAT GEOJSON_IN_SEARCH_ENVELOPE_MINY_GEOJSON_1 Minimum Y:
+# ===========================================================================
+GUI LOOKUP GEOJSON_IN_SEARCH_ENVELOPE_MAXX_GEOJSON_1 <Unused>,0 
+DEFAULT_MACRO GEOJSON_IN_SEARCH_ENVELOPE_MAXX_GEOJSON_1 0
+GEOJSON_1_SEARCH_ENVELOPE "$(GEOJSON_IN_SEARCH_ENVELOPE_MAXX_GEOJSON_1)"
+GUI OPTIONAL FLOAT GEOJSON_IN_SEARCH_ENVELOPE_MAXX_GEOJSON_1 Maximum X:
+# ===========================================================================
+GUI LOOKUP GEOJSON_IN_SEARCH_ENVELOPE_MAXY_GEOJSON_1 <Unused>,0 
+DEFAULT_MACRO GEOJSON_IN_SEARCH_ENVELOPE_MAXY_GEOJSON_1 0
+GEOJSON_1_SEARCH_ENVELOPE "$(GEOJSON_IN_SEARCH_ENVELOPE_MAXY_GEOJSON_1)"
+GUI OPTIONAL FLOAT GEOJSON_IN_SEARCH_ENVELOPE_MAXY_GEOJSON_1 Maximum Y:
+# ===========================================================================
+GUI LOOKUP GEOJSON_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_GEOJSON_1 <Unused>, 
+DEFAULT_MACRO GEOJSON_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_GEOJSON_1 
+GEOJSON_1_SEARCH_ENVELOPE "$(GEOJSON_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_GEOJSON_1)"
+GUI OPTIONAL COORDSYS GEOJSON_IN_SEARCH_ENVELOPE_COORDINATE_SYSTEM_GEOJSON_1 Search Envelope Coordinate System:
+# ===========================================================================
+# BUG18999: We now have a soft clip to fall back on like native spatial index
+# thus we are reintroducing the clip to envelop as an option for users.
+# Defualt to soft clip as per the existing database readers we are emulating
+GUI LOOKUP GEOJSON_IN_CLIP_TO_ENVELOPE_GEOJSON_1 <Unused>,NO 
+DEFAULT_MACRO GEOJSON_IN_CLIP_TO_ENVELOPE_GEOJSON_1 NO
+GEOJSON_1_CLIP_TO_ENVELOPE "$(GEOJSON_IN_CLIP_TO_ENVELOPE_GEOJSON_1)"
+GUI OPTIONAL CHECKBOX GEOJSON_IN_CLIP_TO_ENVELOPE_GEOJSON_1 YES%NO Clip to Search Envelope
+# ===========================================================================
+DEFAULT_MACRO GEOJSON_IN_NETWORK_AUTHENTICATION_GEOJSON_1 
+GEOJSON_1_NETWORK_AUTHENTICATION "$(GEOJSON_IN_NETWORK_AUTHENTICATION_GEOJSON_1)"
+GUI OPTIONAL AUTHENTICATOR GEOJSON_IN_NETWORK_AUTHENTICATION_GEOJSON_1 CONTAINER%GROUP%CONTAINER_TITLE%"Network Authentication"%PROMPT_TYPE%NETWORK Network Authentication
+# ============================================================================ 
+DEFAULT_MACRO GEOJSON_IN_ATTRIBUTE_READING_GEOJSON_1 ALL
+GEOJSON_1_ATTRIBUTE_READING "$(GEOJSON_IN_ATTRIBUTE_READING_GEOJSON_1)"
+# ============================================================================ 
+GEOJSON_1_GENERATE_FME_BUILD_NUM 18590
+GEOJSON_1_DATASET "$(SourceDataset_GEOJSON_1)"
+#! END_SOURCE_HEADER
+#! START_WB_HEADER
+MACRO WB_KEYWORD "POSTGRES_1"
+#! END_WB_HEADER
+#! START_DEST_HEADER POSTGRES POSTGRES_1
+#! END_DEST_HEADER
+#! START_WB_HEADER
+DEFAULT_MACRO DestDataset
+INCLUDE [ if {"$(DestDataset)" != ""} {                          \
+ puts {DEFAULT_MACRO DestDataset_POSTGRES_1 $(DestDataset)}         \
+ } ]
+#! END_WB_HEADER
+#! START_DEST_HEADER POSTGRES POSTGRES_1
+DEFAULT_MACRO DestDataset_POSTGRES_1 $(DestDataset_POSTGRES)
+GUI NAMED_DB_CONNECTION_ENCODED DestDataset_POSTGRES_1 FMT:POSTGRES Connection:
+DEFAULT_MACRO POSTGRES_OUT_STRICT_TEMPORAL_TYPE_HANDLING_POSTGRES_1 Yes
+POSTGRES_1_STRICT_TEMPORAL_TYPE_HANDLING "$(POSTGRES_OUT_STRICT_TEMPORAL_TYPE_HANDLING_POSTGRES_1)"
+DEFAULT_MACRO POSTGRES_OUT_FME_CONNECTION_GROUP_POSTGRES_1 
+GUI OPTIONAL DISCLOSUREGROUP POSTGRES_OUT_FME_CONNECTION_GROUP_POSTGRES_1 POSTGRES_OUT_NAMED_CONNECTION Database Connection
+DEFAULT_MACRO POSTGRES_OUT_ADVANCED_POSTGRES_1 
+GUI OPTIONAL DISCLOSUREGROUP POSTGRES_OUT_ADVANCED_POSTGRES_1 POSTGRES_OUT_BULK_COPY_POSTGRES_1%POSTGRES_OUT_START_TRANSACTION_POSTGRES_1%POSTGRES_OUT_TRANSACTION_INTERVAL_POSTGRES_1%POSTGRES_OUT_BEGIN_SQL_POSTGRES_1%POSTGRES_OUT_END_SQL_POSTGRES_1 Advanced
+DEFAULT_MACRO POSTGRES_OUT_BULK_COPY_POSTGRES_1 YES
+POSTGRES_1_BULK_COPY "$(POSTGRES_OUT_BULK_COPY_POSTGRES_1)"
+GUI CHOICE POSTGRES_OUT_BULK_COPY_POSTGRES_1 YES%NO Bulk Insert
+DEFAULT_MACRO POSTGRES_OUT_START_TRANSACTION_POSTGRES_1 0
+POSTGRES_1_START_TRANSACTION "$(POSTGRES_OUT_START_TRANSACTION_POSTGRES_1)"
+GUI TEXT POSTGRES_OUT_START_TRANSACTION_POSTGRES_1 Starting Feature:
+DEFAULT_MACRO POSTGRES_OUT_TRANSACTION_INTERVAL_POSTGRES_1 1000
+POSTGRES_1_TRANSACTION_INTERVAL "$(POSTGRES_OUT_TRANSACTION_INTERVAL_POSTGRES_1)"
+GUI TEXT POSTGRES_OUT_TRANSACTION_INTERVAL_POSTGRES_1 Features Per Transaction
+DEFAULT_MACRO POSTGRES_OUT_BEGIN_SQL_POSTGRES_1 
+POSTGRES_1_BEGIN_SQL "$(POSTGRES_OUT_BEGIN_SQL_POSTGRES_1)"
+GUI OPTIONAL TEXT_EDIT_SQL_CFG POSTGRES_OUT_BEGIN_SQL_POSTGRES_1 MODE,SQL;FORMAT,POSTGRES SQL To Run Before Write
+DEFAULT_MACRO POSTGRES_OUT_END_SQL_POSTGRES_1 
+POSTGRES_1_END_SQL "$(POSTGRES_OUT_END_SQL_POSTGRES_1)"
+GUI OPTIONAL TEXT_EDIT_SQL_CFG POSTGRES_OUT_END_SQL_POSTGRES_1 MODE,SQL;FORMAT,POSTGRES SQL To Run After Write
+DEFAULT_MACRO POSTGRES_OUT_COORDINATE_SYSTEM_GRANULARITY_POSTGRES_1 FEATURE
+POSTGRES_1_COORDINATE_SYSTEM_GRANULARITY "$(POSTGRES_OUT_COORDINATE_SYSTEM_GRANULARITY_POSTGRES_1)"
+# ============================================================================ 
+POSTGRES_1_GENERATE_FME_BUILD_NUM 18590
+POSTGRES_1_DATASET "$(DestDataset_POSTGRES_1)"
+#! END_DEST_HEADER
+#! START_WB_HEADER
+#! END_WB_HEADER
+#! END_HEADER
+
+LOG_FILENAME "$(FME_MF_DIR)Weather_Data_Json_to_Postgis.log"
+LOG_APPEND NO
+LOG_FILTER_MASK -1
+LOG_MAX_FEATURES 200
+LOG_MAX_RECORDED_FEATURES 200
+FME_REPROJECTION_ENGINE FME
+FME_IMPLICIT_CSMAP_REPROJECTION_MODE Auto
+FME_GEOMETRY_HANDLING Enhanced
+FME_STROKE_MAX_DEVIATION 0
+DEFAULT_MACRO DATASET_KEYWORD_GEOJSON_1 GEOJSON_1
+DEFAULT_MACRO DATASET_KEYWORD_POSTGRES_1 POSTGRES_1
+# -------------------------------------------------------------------------
+
+GEOJSON_1_READER_META_ATTRIBUTES fme_feature_type
+
+# -------------------------------------------------------------------------
+
+MULTI_READER_CONTINUE_ON_READER_FAILURE No
+
+# -------------------------------------------------------------------------
+
+MACRO WORKSPACE_NAME Weather_Data_Json_to_Postgis
+MACRO FME_VIEWER_APP fmedatainspector
+# -------------------------------------------------------------------------
+
+INCLUDE [ if {[info exists env(FME_TEMP)] && [file isdirectory $env(FME_TEMP)]} {set gVisualizerTemp $env(FME_TEMP)}  elseif {[info exists env(TEMP)] && [file isdirectory $env(TEMP)]}  {set gVisualizerTemp $env(TEMP)}  elseif { $tcl_platform(platform) == "unix" } {set gVisualizerTemp "/tmp"} else {set gVisualizerTemp c:};  regsub -all {[ ,&]} {$(WORKSPACE_NAME)} {_} wsname; set gVisualizerTemp $gVisualizerTemp/${wsname}_[clock format [clock seconds] -format %H%M%S];  puts "MACRO WORKSPACE_TEMP_DIR $gVisualizerTemp"; 
+MACRO VISUALIZER_FEATURE_FILE $(WORKSPACE_TEMP_DIR)/inspector.ffs
+MACRO VISUALIZER_SCHEMA_FILE $(WORKSPACE_TEMP_DIR)/inspector.fsc
+MACRO VISUALIZER_CREATE_SPATIAL_INDEX YES
+# -------------------------------------------------------------------------
+GEOJSON_1_DEF Weather_Data_all_20200109T140000Z   observationType              string   timestep{}                   string   id                           string   observedPropertyName         string   result{}                     int
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory   FACTORY_NAME "Router and Unexpected Input Remover"   COMMAND_PARM_EVALUATION SINGLE_PASS   MULTI_READER_KEYWORD $(DATASET_KEYWORD_GEOJSON_1)   INPUT FEATURE_TYPE *    ROUTE GEOJSON GEOJSON_1::Weather_Data_all_20200109T140000Z multi_reader_keyword,$(DATASET_KEYWORD_GEOJSON_1) TO FME_GENERIC ::Weather_Data_all_20200109T140000Z ALIAS_GEOMETRY    MERGE_INPUT Yes   OUTPUT ROUTED FEATURE_TYPE *
+GEOJSON_1_MERGE_DEF GEOJSON_1::Weather_Data_all_20200109T140000Z EXACT Weather_Data_all_20200109T140000Z
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory    FACTORY_NAME "Weather_Data_all_20200109T140000Z (GEOJSON_1) Splitter"    INPUT FEATURE_TYPE Weather_Data_all_20200109T140000Z    OUTPUT FEATURE_TYPE Weather_Data_all_20200109T140000Z_GEOJSON_1
+DEFAULT_MACRO WB_CURRENT_CONTEXT
+# -------------------------------------------------------------------------
+FACTORY_DEF * ElementFactory    FACTORY_NAME ListExploder    INPUT  FEATURE_TYPE Weather_Data_all_20200109T140000Z_GEOJSON_1    LIST_NAME "timestep{}"    ELEMENT_NUMBER_FIELD "_element_index"    CLONE_GEOMETRY    ATTR_ACCUM_MODE "HANDLE_CONFLICT"    ATTR_CONFLICT_RES "INCOMING_IF_CONFLICT"    INCOMING_PREFIX "<Unused>"    OUTPUT ELEMENT FEATURE_TYPE ListExploder_ELEMENTS         @RemoveAttributes(ElementFactory.baseCloned)    OUTPUT NOLIST FEATURE_TYPE ListExploder_<REJECTED>         @RemoveAttributes(ElementFactory.baseCloned)         fme_rejection_code MISSING_PARAMETER_LIST
+# -------------------------------------------------------------------------
+FACTORY_DEF * ElementFactory    FACTORY_NAME ListExploder_2    INPUT  FEATURE_TYPE ListExploder_ELEMENTS    LIST_NAME "result{}"    ELEMENT_NUMBER_FIELD "_element_index"    CLONE_GEOMETRY    ATTR_ACCUM_MODE "HANDLE_CONFLICT"    ATTR_CONFLICT_RES "INCOMING_IF_CONFLICT"    INCOMING_PREFIX "<Unused>"    OUTPUT ELEMENT FEATURE_TYPE ListExploder_2_ELEMENTS         @RemoveAttributes(ElementFactory.baseCloned)    OUTPUT NOLIST FEATURE_TYPE ListExploder_2_<REJECTED>         @RemoveAttributes(ElementFactory.baseCloned)         fme_rejection_code MISSING_PARAMETER_LIST
+# -------------------------------------------------------------------------
+# First determine which function we are going to be using -- we can do
+# this statically at parse time for efficiency sake
+MACRO GeometryExtractor_Function
+INCLUDE [ if {{GEOJSON} == {fmebinary} } {               puts {MACRO GeometryExtractor_Function @Geometry(TO_ATTRIBUTE_BINARY,"_geometry") }           } elseif {{GEOJSON} == {fmehex} } {               puts {MACRO GeometryExtractor_Function @Geometry(TO_ATTRIBUTE_BINARY_HEX,"_geometry") }           } elseif {{GEOJSON} == {fmexml} } {               puts {MACRO GeometryExtractor_Function @Geometry(TO_ATTRIBUTE,"_geometry") }           } elseif {{GEOJSON} == {polyline} } {               puts {MACRO GeometryExtractor_Function @Geometry(TO_ATTRIBUTE_POLYLINE,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {wkt} } {               puts {MACRO GeometryExtractor_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry",1.2,FLOAT_64) }           } elseif {{GEOJSON} == {wkb} ||                     {GEOJSON} == {wkbhex} } {               puts {MACRO GeometryExtractor_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry",1.2) }           } elseif {{GEOJSON} == {GEOJSON} ||                     {GEOJSON} == {ESRIJSON} } {               puts {MACRO GeometryExtractor_Function @JSONGeometry(TO_ATTRIBUTE,GEOJSON,"_geometry",7) }           } elseif {{GEOJSON} == {KML} } {               puts {MACRO GeometryExtractor_Function @KMLGeometry(TO_ATTRIBUTE,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {GEORSS_SIMPLE} } {               puts {MACRO GeometryExtractor_Function @GeoRSSGeometry(TO_ATTRIBUTE,GEOJSON,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {GML_2.1.2} ||                     {GEOJSON} == {GML_3.1.1} ||                     {GEOJSON} == {GML_3.2.1} } {               puts {MACRO GeometryExtractor_Function @GMLGeometry(TO_ATTRIBUTE,GEOJSON,"_geometry",<Unused>,NO) }           } elseif {{GEOJSON} == {geohash} } {               puts {MACRO GeometryExtractor_Function @GeoHash(TO_ATTRIBUTE,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {ogeosms} } {               puts {MACRO GeometryExtractor_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry",http://maps.google.com/?q=) }           } elseif {{GEOJSON} == {geosms} ||                     {GEOJSON} == {geo}    } {               puts {MACRO GeometryExtractor_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry") }           } elseif {{GEOJSON} == {mgrs} } {               puts {MACRO GeometryExtractor_Function @SupplyAttributes(_geometry, @MGRS(TO_MGRS, <Unused>, <Unused>, "<Unused>")) }           } elseif {{GEOJSON} == {mssql} } {               puts {MACRO GeometryExtractor_Function @SerializeGeometry(to_attribute,GEOJSON,"_geometry","<Unused>")}           } elseif {{GEOJSON} == {iso6709} } {               puts {MACRO GeometryExtractor_Function @GeographicPoint(TO_ATTRIBUTE,"_geometry","<Unused>","<Unused>")}           } elseif {{GEOJSON} == {qlikmaps} } {               puts {MACRO GeometryExtractor_Function @Geometry(TO_ATTRIBUTE_QLIKMAPS_POLYLINE,"_geometry",<Unused>) }           }         ]
+# Next determine if we should remove the geometry and also do this once at parse time
+# By default, the macro has nothing, meaning we do not remove. If we want to remove, then we'll set the macro to do so
+MACRO GeometryExtractor_GeometryRemoveFunction
+INCLUDE [ if {{No} == {Yes} } {               puts {MACRO GeometryExtractor_GeometryRemoveFunction @RemoveGeometry() }           }         ]
+FACTORY_DEF * TeeFactory    FACTORY_NAME GeometryExtractor    INPUT  FEATURE_TYPE ListExploder_2_ELEMENTS    OUTPUT FEATURE_TYPE ___TOREJECTOR___         @RenameAttributes(FME_STRICT,___fme_rejection_code___,fme_rejection_code)         $(GeometryExtractor_Function)         $(GeometryExtractor_GeometryRemoveFunction)
+FACTORY_DEF * TestFactory    FACTORY_NAME GeometryExtractor_Rejector    INPUT FEATURE_TYPE ___TOREJECTOR___    TEST @Value(fme_rejection_code) != ""    OUTPUT PASSED FEATURE_TYPE GeometryExtractor_<REJECTED>       @RemoveAttributes(___fme_rejection_code___)    OUTPUT FAILED FEATURE_TYPE GeometryExtractor_OUTPUT       @RenameAttributes(FME_STRICT,fme_rejection_code,___fme_rejection_code___)
+FACTORY_DEF * TeeFactory   FACTORY_NAME "GeometryExtractor OUTPUT Splitter"   INPUT FEATURE_TYPE GeometryExtractor_OUTPUT   OUTPUT FEATURE_TYPE GeometryExtractor_OUTPUT_0_ZY8dRGJyKK0=   OUTPUT FEATURE_TYPE GeometryExtractor_OUTPUT_1_jpJI9m4sOZA=
+# -------------------------------------------------------------------------
+FACTORY_DEF {*} AttrSetFactory    COMMAND_PARM_EVALUATION SINGLE_PASS    FACTORY_NAME AttributeRenamer    INPUT  FEATURE_TYPE GeometryExtractor_OUTPUT_1_jpJI9m4sOZA= 	 ATTRSET_CREATE_DIRECTIVES _PROPAGATE_MISSING_FDIV 	 ATTR_ACTION { "_geometry" "_ori_geometry" "RENAME_SET_DEFAULT" "" }    OUTPUT OUTPUT FEATURE_TYPE AttributeRenamer_OUTPUT
+# -------------------------------------------------------------------------
+FACTORY_DEF {*} DuplicateRemoverFactory    FACTORY_NAME DuplicateFilter    COMMAND_PARM_EVALUATION SINGLE_PASS    SUPPORTS_FEATURE_TABLES    INPUT  FEATURE_TYPE GeometryExtractor_OUTPUT_0_ZY8dRGJyKK0=    KEY_ATTRIBUTES { _geometry }    INPUT_IS_ORDERED NO    OUTPUT UNIQUE FEATURE_TYPE DuplicateFilter_UNIQUE
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory   FACTORY_NAME "GUIDGenerator INPUT Input Collector"   INPUT FEATURE_TYPE DuplicateFilter_UNIQUE   OUTPUT FEATURE_TYPE GUIDGenerator_INPUT
+MACRO GUIDGenerator_WORKSPACE_NAME GUIDGenerator
+MACRO $(GUIDGenerator_WORKSPACE_NAME)_XFORMER_NAME GUIDGenerator
+MACRO $(GUIDGenerator_WORKSPACE_NAME)_TRANSFORMER_GROUP 
+MACRO $(GUIDGenerator_WORKSPACE_NAME)___COMPOUND_PARAMETERS 
+MACRO $(GUIDGenerator_WORKSPACE_NAME)_SUB_DOC_NAME GUIDGenerator
+DEFAULT_MACRO GUIDGenerator_WORKSPACE_NAME ""
+INCLUDE [puts {MACRO WB_OLD_CONTEXT_$(GUIDGenerator_WORKSPACE_NAME) $(WB_CURRENT_CONTEXT)};          puts {MACRO WB_CURRENT_CONTEXT $(GUIDGenerator_WORKSPACE_NAME)}]
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(GUIDGenerator_WORKSPACE_NAME)_INPUT1578578799 Input Splitter"   INPUT FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_INPUT"   OUTPUT FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_INPUT"
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(GUIDGenerator_WORKSPACE_NAME)_UUIDGENERATOR_2    INPUT  FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_INPUT"    OUTPUT FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_UUIDGENERATOR_2_OUTPUT"         "GFID" @UUID()
+# -------------------------------------------------------------------------
+Tcl2 proc $(GUIDGenerator_WORKSPACE_NAME)_CONCATENATOR_2_evaluator {} {    if {{OUTGOING} == {OUTGOING}} {      set attr [FME_DecodeText {GFID}];      if {[string length $attr] == 0} { return; };      set attrs [list [FME_EncodeText $attr]];    } else {      set attrAll {<Unused>};      if {[string length $attrAll] == 0} { return; };      set attrs [split {<Unused>} { }];    };    set parmList {{EvaluateExpression} {ATTR_CREATE_EXPR_PROPOGATE_MISSING_FDIV}};    foreach attr $attrs {     lappend parmList $attr;     lappend parmList {"<opencurly><at>Value<openparen>GFID<closeparen><closecurly>"};    };    lappend parmList {$(GUIDGenerator_WORKSPACE_NAME)_CONCATENATOR_2};    eval FME_Execute $parmList; }
+FACTORY_DEF * TeeFactory    FACTORY_NAME $(GUIDGenerator_WORKSPACE_NAME)_CONCATENATOR_2    INPUT  FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_UUIDGENERATOR_2_OUTPUT"    OUTPUT FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_CONCATENATOR_2_OUTPUT"         @Tcl2("$(GUIDGenerator_WORKSPACE_NAME)_CONCATENATOR_2_evaluator ")
+FACTORY_DEF * TeeFactory   FACTORY_NAME "$(GUIDGenerator_WORKSPACE_NAME)_OUTPUT1578578799 Output Collector"   INPUT FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_CONCATENATOR_2_OUTPUT"   OUTPUT FEATURE_TYPE "$(GUIDGenerator_WORKSPACE_NAME)_OUTPUT"
+INCLUDE [puts {MACRO WB_CURRENT_CONTEXT $(WB_OLD_CONTEXT_$(GUIDGenerator_WORKSPACE_NAME))}]
+FACTORY_DEF * TeeFactory   FACTORY_NAME "GUIDGenerator OUTPUT Output Renamer/Nuker"   INPUT FEATURE_TYPE GUIDGenerator_OUTPUT   OUTPUT FEATURE_TYPE GUIDGenerator_OUTPUT
+# -------------------------------------------------------------------------
+INCLUDE [    puts {DEFAULT_MACRO FeatureWriterDataset_FeatureWriter Helsinki_osm}; ]
+FACTORY_DEF * WriterFactory    FACTORY_NAME FeatureWriter    WRITER_TYPE POSTGIS    WRITER_DATASET "$(FeatureWriterDataset_FeatureWriter)"    WRITER_SETTINGS RUNTIME_MACROS,STRICT_TEMPORAL_TYPE_HANDLING<comma>Yes<comma>NAMED_CONNECTION<comma>Helsinki_osm<comma>SPATIAL_COLUMN_TYPE<comma>geometry<comma>SPATIAL_COLUMN_NAME<comma>geom<comma>GENERIC_GEOMETRY<comma>yes<comma>LOWERCASE_ATTRIBUTE_NAMES<comma>Yes<comma>COORDINATE_SYSTEM_GRANULARITY<comma>FEATURE_TYPE<comma>ADVANCED<comma><comma>BULK_COPY<comma>YES<comma>START_TRANSACTION<comma>0<comma>TRANSACTION_INTERVAL<comma>1000<comma>INSERT_TEXT_GEOMETRY<comma>NO<comma>BEGIN_SQL<comma><comma>END_SQL<comma>,METAFILE,POSTGIS    WRITER_METAFILE ATTRIBUTE_CASE,LOWER,ATTRIBUTE_INVALID_CHARS,.<space>%-#<openbracket><closebracket><quote><openparen><closeparen>!?*<apos><amp>+<backslash><solidus>,ATTRIBUTE_LENGTH,63,ATTR_TYPE_MAP,bool<comma>fme_boolean<comma>char<openparen>width<closeparen><comma>fme_char<openparen>width<closeparen><comma>varchar<openparen>width<closeparen><comma>fme_varchar<openparen>width<closeparen><comma>text<comma>fme_buffer<comma>xml<comma>fme_xml<comma>json<comma>fme_json<comma>jsonb<comma>fme_json<comma>bytea<comma>fme_binarybuffer<comma>bytea<comma>fme_varbinary<openparen>width<closeparen><comma>bytea<comma>fme_binary<openparen>width<closeparen><comma>int2<comma>fme_int16<comma>int2<comma>fme_int8<comma>int2<comma>fme_uint8<comma>int4<comma>fme_int32<comma>int4<comma>fme_uint16<comma>int8<comma>fme_int64<comma>int8<comma>fme_uint32<comma><quote>numeric<openparen>width<comma>decimal<closeparen><quote><comma><quote>fme_decimal<openparen>width<comma>decimal<closeparen><quote><comma><quote>numeric<openparen>20<comma>0<closeparen><quote><comma>fme_uint64<comma>oid<comma>fme_uint32<comma>serial<comma>fme_int32<comma>float4<comma>fme_real32<comma>money<comma>fme_real32<comma>float8<comma>fme_real64<comma>date<comma>fme_date<comma>time<comma>fme_time<comma>timetz<comma>fme_time<comma>timestamp<comma>fme_datetime<comma>timestamptz<comma>fme_datetime<comma>uuid<comma>fme_buffer<comma>bit<openparen>width<closeparen><comma>fme_char<openparen>width<closeparen><comma>varbit<comma>fme_buffer<comma>varbit<openparen>width<closeparen><comma>fme_varchar<openparen>width<closeparen>,DEST_ILLEGAL_ATTR_LIST,FME_DB_OPERATION<comma>FME_DB_TRANSACTION<comma>FME_FEATURE_OPERATION<comma>POSTGIS_TRUNCATE_TABLE<comma>FME_TABLE_HANDLING<comma>FME_SELECTION_METHOD<comma>FME_MATCH_COLUMNS<comma>FME_WHERE_BUILDER_CLAUSE<comma>FME_MATCH_ID_ATTRIBUTE<comma>FME_MATCH_REVISION_ATTRIBUTE<comma>FME_UPDATE_GEOMETRY<comma>POSTGIS_TYPE<comma>POSTGIS_MODE<comma>POSTGIS_SQL_KEY_COLUMNS<comma>POSTGIS_GEOMETRY_COLUMN<comma>POSTGIS_SPATIAL_COLUMN<comma>POSTGIS_DROP_TABLE<comma>POSTGIS_SPATIAL_COLUMN_TYPE<comma>POSTGIS_SRID<comma>POSTGIS_CREATE_WITH_OIDS<comma>POSTGIS_CREATE_GIST_INDEX<comma>POSTGIS_VACUUM_ANALYZE<comma>POSTGIS_ALLOW_SERIAL_WRITING<comma>POSTGIS_MULTI_GEOMETRY,FEATURE_TYPE_CASE,ANY,FEATURE_TYPE_INVALID_CHARS,<backslash><backslash><solidus><quote>:?*<lt><gt>|<openbracket>%#<space><apos><amp>+<closebracket>,FEATURE_TYPE_LENGTH,63,FEATURE_TYPE_LENGTH_INCLUDES_PREFIX,false,FEATURE_TYPE_RESERVED_WORDS,,FORMAT_METAFILE,$(FME_HOME_ENCODED)metafile<backslash>POSTGIS.fmf,FORMAT_NAME,POSTGIS,GEOM_MAP,postgis_multipoint<comma>fme_point<comma>postgis_point<comma>fme_point<comma>postgis_multilinestring<comma>fme_line<comma>postgis_multicurve<comma>fme_line<comma>postgis_linestring<comma>fme_line<comma>postgis_line<comma>fme_line<comma>postgis_circularstring<comma>fme_line<comma>postgis_compoundcurve<comma>fme_line<comma>postgis_multipolygon<comma>fme_polygon<comma>postgis_multisurface<comma>fme_polygon<comma>postgis_polygon<comma>fme_polygon<comma>postgis_area<comma>fme_polygon<comma>postgis_curvepolygon<comma>fme_polygon<comma>postgis_multipolygon<comma>fme_rectangle<comma>postgis_multipolygon<comma>fme_rounded_rectangle<comma>postgis_multipoint<comma>fme_text<comma>postgis_multipolygon<comma>fme_ellipse<comma>postgis_multilinestring<comma>fme_arc<comma>postgis_triangle<comma>fme_polygon<comma>postgis_polyhedralsurface<comma>fme_surface<comma>postgis_polyhedralsurface<comma>fme_solid<comma>postgis_tin<comma>fme_surface<comma>postgis_none<comma>fme_no_geom<comma>postgis_geometry<comma>fme_no_geom<comma>postgis_geometrycollection<comma>fme_collection<comma>postgis_multipolygon<comma>fme_raster<comma>postgis_multipolygon<comma>fme_point_cloud<comma>postgis_none<comma>fme_feature_table,READER_ATTR_INDEX_TYPES,BTree<comma>RTree<comma>Hash<comma>PrimaryKey,SOURCE,no,SUPPORTS_FEAT_TYPE_FANOUT,yes,SUPPORTS_MULTI_GEOM,yes,WORKBENCH_CANNED_SCHEMA,,WRITER,POSTGIS,WRITER_ATTR_INDEX_TYPES,BTree<comma>RTree<comma>Hash<comma>PrimaryKey,WRITER_DEFLINE_PARMS,<quote>GUI<space>NAMEDGROUP<space>fme_configuration_group<space>fme_configuration_common_group%fme_spatial_group%fme_advanced_group%oracle_advanced_group<space>Table<quote><comma><comma><quote>GUI<space>NAMEDGROUP<space>fme_configuration_common_group<space>fme_feature_operation%fme_table_handling%oracle_model%fme_update_geometry%fme_selection_group%fme_table_creation_group<space>General<quote><comma><comma><quote>GUI<space>ACTIVECHOICE_LOOKUP<space>fme_feature_operation<space>Insert<comma>INSERT<comma>fme_update_geometry<comma>fme_selection_group%Update<comma>UPDATE<comma>++fme_table_handling+USE_EXISTING<comma>++fme_selection_group+FME_DISCLOSURE_OPEN%Delete<comma>DELETE<comma>++fme_table_handling+USE_EXISTING<comma>fme_update_geometry<comma>++fme_selection_group+FME_DISCLOSURE_OPEN<comma>fme_spatial_group<comma>fme_advanced_group<comma>oracle_sequenced_cols%<lt>at<gt>Value<lt>openparen<gt>fme_db_operation<lt>closeparen<gt><comma>MULTIPLE<comma>++fme_table_handling+USE_EXISTING<comma>++fme_selection_group+FME_DISCLOSURE_OPEN<space>Feature<space>Operation<quote><comma>INSERT<comma><quote>GUI<space>ACTIVECHOICE_LOOKUP<space>fme_table_handling<space>Use<lt>space<gt>Existing<comma>USE_EXISTING<comma>fme_table_creation_group%Create<lt>space<gt>If<lt>space<gt>Needed<comma>CREATE_IF_MISSING%Drop<lt>space<gt>and<lt>space<gt>Create<comma>DROP_CREATE%Truncate<lt>space<gt>Existing<comma>TRUNCATE_EXISTING<comma>fme_table_creation_group<space>Table<space>Handling<quote><comma>CREATE_IF_MISSING<comma><quote>GUI<space>WHOLE_LINE<space>LOOKUP_CHOICE<space>fme_update_geometry<space>Yes<comma>YES%No<comma>NO<space>Update<space>Spatial<space>Column<openparen>s<closeparen><quote><comma>YES<comma><quote>GUI<space>DISCLOSUREGROUP<space>fme_selection_group<space>fme_selection_method<space>Row<space>Selection<quote><comma><comma><quote>GUI<space>WHOLE_LINE<space>RADIOPARAMETERGROUP<space>fme_selection_method<space>fme_match_columns<comma>MATCH_COLUMNS%fme_where_builder_clause<comma>BUILDER<space>Row<space>Selection<space>Method<quote><comma>MATCH_COLUMNS<comma><quote>GUI<space>WHOLE_LINE<space>ATTRLIST_COMMAS<space>fme_match_columns<space>Match<space>Columns<quote><comma><comma><quote>GUI<space>WHOLE_LINE<space>TEXT_EDIT_SQL_CFG_OR_ATTR<space>fme_where_builder_clause<space>MODE<comma>WHERE<space>WHERE<space>Clause<quote><comma><comma><quote>GUI<space>DISCLOSUREGROUP<space>fme_table_creation_group<space>postgis_create_with_oids%postgis_create_gist_index<space>Table<space>Creation<space>Parameters<quote><comma><comma><quote>GUI<space>CHOICE<space>postgis_create_with_oids<space>YES%NO<space>Create<space>With<space>OIDs<quote><comma>NO<comma><quote>GUI<space>CHOICE<space>postgis_create_gist_index<space>YES%NO<space>Create<space>GiST<space>Index<quote><comma>YES<comma><quote>GUI<space>NAMEDGROUP<space>fme_spatial_group<space>postgis_spatial_column_type%postgis_spatial_column%postgis_srid<space>Spatial<quote><comma><comma><quote>GUI<space>LOOKUP_CHOICE<space>postgis_spatial_column_type<space>Geometry<comma>geometry%Geography<comma>geography<space>Spatial<space>Type<quote><comma>geometry<comma><quote>GUI<space>OPTIONAL<space>WHOLE_LINE<space>TEXT<space>postgis_spatial_column<space>Spatial<space>Column<quote><comma>geom<comma><quote>GUI<space>OPTIONAL<space>FLOAT<space>postgis_srid<space>Spatial<space>Column<space>SRID<quote><comma><comma><quote>GUI<space>DISCLOSUREGROUP<space>fme_advanced_group<space>postgis_vacuum_analyze%postgis_allow_serial_writing<space>Advanced<quote><comma><comma><quote>GUI<space>CHOICE<space>postgis_vacuum_analyze<space>YES%NO<space>Vacuum<space>Analyze<space>Table<quote><comma>NO<comma><quote>GUI<space>CHOICE<space>postgis_allow_serial_writing<space>YES%NO<space>Allow<space>Serial<space>Column<space>Writing<quote><comma>NO,WRITER_DEF_LINE_TEMPLATE,<opencurly>FME_GEN_GROUP_NAME<closecurly><comma>postgis_type<comma>postgis_geometry<comma>postgis_mode<comma><quote><quote><quote><quote><quote><quote><comma>postgis_sql_key_columns<comma><quote><quote><quote><quote><quote><quote><comma>postgis_drop_table<comma><quote><quote><quote><quote><quote><quote><comma>postgis_truncate_table<comma><quote><quote><quote><quote><quote><quote><comma>fme_feature_operation<comma>INSERT<comma>fme_table_handling<comma>CREATE_IF_MISSING<comma>fme_selection_method<comma>MATCH_COLUMNS<comma>fme_match_columns<comma><quote><quote><quote><quote><quote><quote><comma>fme_where_builder_clause<comma><quote><quote><quote><quote><quote><quote><comma>fme_update_geometry<comma>YES<comma>postgis_create_with_oids<comma>NO<comma>postgis_create_gist_index<comma>YES<comma>postgis_spatial_column_type<comma>geometry<comma>postgis_spatial_column<comma>geom<comma>postgis_srid<comma><quote><quote><quote><quote><quote><quote><comma>postgis_vacuum_analyze<comma>no<comma>postgis_allow_serial_writing<comma>NO,WRITER_FORMAT_PARAMETER,NETWORK_AUTHENTICATION<comma>NO<comma>NETWORK_PROXY<comma>NO<comma>ADVANCED_PARMS<comma>POSTGIS_IN_SCHEMAS_FOR_TABLE_LISTING<comma>DATASET_NAME<comma>Database<comma>FEATURE_TYPE_NAME<comma>Table<comma>FEATURE_TYPE_DEFAULT_NAME<comma>Table1<comma>SUPPORTS_SCHEMA_IN_FEATURE_TYPE_NAME<comma>YES<comma>ATTRIBUTE_READING<comma>DEFLINE_ATTRS<comma>ATTRIBUTE_READING_HISTORIC<comma>ALL<comma>ADVANCED_PARMS<comma><quote>POSTGIS_IN_FEATURES_PER_FETCH<space>POSTGIS_IN_BEGIN_SQL<space>POSTGIS_IN_END_SQL<space>POSTGIS_IN_SEARCH_METHOD<space>POSTGIS_OUT_BULK_COPY<space>POSTGIS_OUT_INSERT_TEXT_GEOMETRY<space>POSTGIS_OUT_TRANSACTION_INTERVAL<space>POSTGIS_OUT_BEGIN_SQL<space>POSTGIS_OUT_END_SQL<quote>,WRITER_HAS_DEFLINE_ATTRS,yes    WRITER_FEATURE_TYPES weather_data_stations:OUTPUT,ftp_feature_type_name,weather_data_stations,ftp_writer,POSTGIS,ftp_dynamic_schema,no,ftp_dynamic_feature_type_name_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_geometry_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_schema_def_name_type,DYN_SCHEMA_PROP_AUTO,ftp_dynamic_schema_sources,<lt>lt<gt>Unused<lt>gt<gt>,ftp_attribute_source,1,ftp_user_attributes,gfid<comma>varchar<lt>openparen<gt>200<lt>closeparen<gt>,ftp_format_parameters,fme_configuration_group<comma><comma>fme_configuration_common_group<comma><comma>fme_feature_operation<comma>INSERT<comma>fme_table_handling<comma>DROP_CREATE<comma>fme_update_geometry<comma><lt>lt<gt>Unused<lt>gt<gt><comma>fme_selection_group<comma><comma>fme_selection_method<comma><lt>lt<gt>Unused<lt>gt<gt><comma>fme_match_columns<comma><lt>lt<gt>Unused<lt>gt<gt><comma>fme_where_builder_clause<comma><lt>lt<gt>Unused<lt>gt<gt><comma>fme_table_creation_group<comma><comma>postgis_create_with_oids<comma>NO<comma>postgis_create_gist_index<comma>YES<comma>fme_spatial_group<comma><comma>postgis_spatial_column_type<comma>geometry<comma>postgis_spatial_column<comma>geom<comma>postgis_srid<comma><comma>fme_advanced_group<comma>FME_DISCLOSURE_OPEN<comma>postgis_vacuum_analyze<comma>NO<comma>postgis_allow_serial_writing<comma>NO    WRITER_PARAMS SPATIAL_COLUMN_TYPE,geometry,INSERT_TEXT_GEOMETRY,NO,START_TRANSACTION,0,STRICT_TEMPORAL_TYPE_HANDLING,Yes,SPATIAL_COLUMN_NAME,geom,LOWERCASE_ATTRIBUTE_NAMES,Yes,GENERIC_GEOMETRY,yes,BULK_COPY,YES,NAMED_CONNECTION,Helsinki_osm,COORDINATE_SYSTEM_GRANULARITY,FEATURE_TYPE,TRANSACTION_INTERVAL,1000    DATASET_ATTR _dataset    FEATURE_TYPE_LIST_ATTR _feature_type    TOTAL_FEATURES_WRITTEN_ATTR _total_features_written    OUTPUT_PORTS ""    INPUT OUTPUT FEATURE_TYPE GUIDGenerator_OUTPUT  @FeatureType(ENCODED,weather_data_stations)    OUTPUT SUMMARY FEATURE_TYPE FeatureWriter_SUMMARY
+# -------------------------------------------------------------------------
+MACRO FeatureReader_OUTPUT_PORTS_ENCODED public.weather_data_stations
+MACRO FeatureReader_DIRECTIVES READ_TIME_WITH_TIMEZONE,Yes,USE_SEARCH_ENVELOPE,NO,QUERY_FEATURE_TYPES_FOR_MERGE_FILTERS,Yes,USE_TRUE_POSTGIS_TYPES,yes,FEATURES_PER_FETCH,10000,NAMED_CONNECTION,Helsinki_osm,DISABLE_COLLECTION_SPLITTING,yes
+# Always provide an INTERACTION, otherwise the factory defaults to ENVELOPE_INTERSECTS
+INCLUDE [if { ( {NONE} == {<Unused>} ) || ( {($INTERACT_OPTIONS)} == {} ) } {             puts {MACRO FCTQUERY_INTERACTION_LINE FCTQUERY_INTERACTION NONE};          } else {             puts {MACRO FCTQUERY_INTERACTION_LINE FCTQUERY_INTERACTION "NONE"};          }         ]
+# Consolidate the attribute merge options to what the factory expects
+DEFAULT_MACRO FeatureReader_COMBINE_ATTRS
+INCLUDE [       if { {RESULT_ONLY} == {MERGE} } {          puts "MACRO FeatureReader_COMBINE_ATTRS <Unused>";       } else {          puts "MACRO FeatureReader_COMBINE_ATTRS RESULT_ONLY";       };    ]
+INCLUDE [    puts {DEFAULT_MACRO FeatureReaderDataset_FeatureReader Helsinki_osm}; ]
+FACTORY_DEF * QueryFactory    FACTORY_NAME FeatureReader    INPUT  FEATURE_TYPE FeatureWriter_SUMMARY    $(FCTQUERY_INTERACTION_LINE)    COMBINE_ATTRIBUTES  $(FeatureReader_COMBINE_ATTRS)    QUERYFCT_ATTRIBUTE_PREFIX <Unused>    COMBINE_GEOMETRY    RESULT_ONLY    ENABLE_CACHE        NO    QUERYFCT_TABLE_SEPARATOR SPACE    READER_TYPE         POSTGIS    READER_DATASET      "$(FeatureReaderDataset_FeatureReader)"    QUERYFCT_IDS        "public.weather_data_stations"    READER_DIRECTIVES META_MACROS,SourceQUERY_FEATURE_TYPES_FOR_MERGE_FILTERS<comma>Yes<comma>SourceREAD_TIME_WITH_TIMEZONE<comma>Yes<comma>SourceDISABLE_COLLECTION_SPLITTING<comma>yes<comma>SourceUSE_TRUE_POSTGIS_TYPES<comma>yes<comma>SourceNAMED_CONNECTION<comma>Helsinki_osm<comma>SourceSCHEMAS_FOR_TABLE_LISTING<comma><comma>SourceWHERE_CLAUSE<comma><comma>SourceEXPOSE_ATTRS_GROUP<comma><comma>SourcePOSTGIS_EXPOSE_FORMAT_ATTRS<comma><comma>SourceUSE_SEARCH_ENVELOPE<comma>NO<comma>SourceSEARCH_ENVELOPE_MINX<comma>0<comma>SourceSEARCH_ENVELOPE_MINY<comma>0<comma>SourceSEARCH_ENVELOPE_MAXX<comma>0<comma>SourceSEARCH_ENVELOPE_MAXY<comma>0<comma>SourceSEARCH_ENVELOPE_COORDINATE_SYSTEM<comma><comma>SourceCLIP_TO_ENVELOPE<comma>NO<comma>SourceSEARCH_METHOD<comma>MBR_OVERLAPS<comma>SourceADVANCED<comma><comma>SourceFEATURES_PER_FETCH<comma>10000<comma>SourceBEGIN_SQL<comma><comma>SourceEND_SQL<comma>,METAFILE,POSTGIS    QUERYFCT_OUTPUT     "BASED_ON_CONNECTIONS"    CONTINUE_ON_READER_ERROR YES    QUERYFCT_RESULT_TAGS $(FeatureReader_OUTPUT_PORTS_ENCODED)    QUERYFCT_SET_FME_FEATURE_TYPE YES    READER_PARAMS_WWJD     $(FeatureReader_DIRECTIVES)    TREAT_READER_PARAM_AMPERSANDS_AS_LITERALS YES    OUTPUT READER_ERROR FEATURE_TYPE FeatureReader_<REJECTED>    OUTPUT public.weather_data_stations FEATURE_TYPE FeatureReader_public.weather_data_stations
+# -------------------------------------------------------------------------
+# First determine which function we are going to be using -- we can do
+# this statically at parse time for efficiency sake
+MACRO GeometryExtractor_2_Function
+INCLUDE [ if {{GEOJSON} == {fmebinary} } {               puts {MACRO GeometryExtractor_2_Function @Geometry(TO_ATTRIBUTE_BINARY,"_geometry") }           } elseif {{GEOJSON} == {fmehex} } {               puts {MACRO GeometryExtractor_2_Function @Geometry(TO_ATTRIBUTE_BINARY_HEX,"_geometry") }           } elseif {{GEOJSON} == {fmexml} } {               puts {MACRO GeometryExtractor_2_Function @Geometry(TO_ATTRIBUTE,"_geometry") }           } elseif {{GEOJSON} == {polyline} } {               puts {MACRO GeometryExtractor_2_Function @Geometry(TO_ATTRIBUTE_POLYLINE,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {wkt} } {               puts {MACRO GeometryExtractor_2_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry",1.2,FLOAT_64) }           } elseif {{GEOJSON} == {wkb} ||                     {GEOJSON} == {wkbhex} } {               puts {MACRO GeometryExtractor_2_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry",1.2) }           } elseif {{GEOJSON} == {GEOJSON} ||                     {GEOJSON} == {ESRIJSON} } {               puts {MACRO GeometryExtractor_2_Function @JSONGeometry(TO_ATTRIBUTE,GEOJSON,"_geometry",7) }           } elseif {{GEOJSON} == {KML} } {               puts {MACRO GeometryExtractor_2_Function @KMLGeometry(TO_ATTRIBUTE,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {GEORSS_SIMPLE} } {               puts {MACRO GeometryExtractor_2_Function @GeoRSSGeometry(TO_ATTRIBUTE,GEOJSON,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {GML_2.1.2} ||                     {GEOJSON} == {GML_3.1.1} ||                     {GEOJSON} == {GML_3.2.1} } {               puts {MACRO GeometryExtractor_2_Function @GMLGeometry(TO_ATTRIBUTE,GEOJSON,"_geometry",<Unused>,NO) }           } elseif {{GEOJSON} == {geohash} } {               puts {MACRO GeometryExtractor_2_Function @GeoHash(TO_ATTRIBUTE,"_geometry",<Unused>) }           } elseif {{GEOJSON} == {ogeosms} } {               puts {MACRO GeometryExtractor_2_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry",http://maps.google.com/?q=) }           } elseif {{GEOJSON} == {geosms} ||                     {GEOJSON} == {geo}    } {               puts {MACRO GeometryExtractor_2_Function @OGCGeometry(to_attribute,GEOJSON,"_geometry") }           } elseif {{GEOJSON} == {mgrs} } {               puts {MACRO GeometryExtractor_2_Function @SupplyAttributes(_geometry, @MGRS(TO_MGRS, <Unused>, <Unused>, "<Unused>")) }           } elseif {{GEOJSON} == {mssql} } {               puts {MACRO GeometryExtractor_2_Function @SerializeGeometry(to_attribute,GEOJSON,"_geometry","<Unused>")}           } elseif {{GEOJSON} == {iso6709} } {               puts {MACRO GeometryExtractor_2_Function @GeographicPoint(TO_ATTRIBUTE,"_geometry","<Unused>","<Unused>")}           } elseif {{GEOJSON} == {qlikmaps} } {               puts {MACRO GeometryExtractor_2_Function @Geometry(TO_ATTRIBUTE_QLIKMAPS_POLYLINE,"_geometry",<Unused>) }           }         ]
+# Next determine if we should remove the geometry and also do this once at parse time
+# By default, the macro has nothing, meaning we do not remove. If we want to remove, then we'll set the macro to do so
+MACRO GeometryExtractor_2_GeometryRemoveFunction
+INCLUDE [ if {{No} == {Yes} } {               puts {MACRO GeometryExtractor_2_GeometryRemoveFunction @RemoveGeometry() }           }         ]
+FACTORY_DEF * TeeFactory    FACTORY_NAME GeometryExtractor_2    INPUT  FEATURE_TYPE FeatureReader_public.weather_data_stations    OUTPUT FEATURE_TYPE ___TOREJECTOR___         @RenameAttributes(FME_STRICT,___fme_rejection_code___,fme_rejection_code)         $(GeometryExtractor_2_Function)         $(GeometryExtractor_2_GeometryRemoveFunction)
+FACTORY_DEF * TestFactory    FACTORY_NAME GeometryExtractor_2_Rejector    INPUT FEATURE_TYPE ___TOREJECTOR___    TEST @Value(fme_rejection_code) != ""    OUTPUT PASSED FEATURE_TYPE GeometryExtractor_2_<REJECTED>       @RemoveAttributes(___fme_rejection_code___)    OUTPUT FAILED FEATURE_TYPE GeometryExtractor_2_OUTPUT       @RenameAttributes(FME_STRICT,fme_rejection_code,___fme_rejection_code___)
+# -------------------------------------------------------------------------
+INCLUDE [if { {ATTRIBUTES} == {ATTRIBUTES} } {                puts "MACRO FeatureMerger_REFERENCE_INFO ATTRIBUTES";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} && {AGGREGATES} == {POLYGONS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_POLYS";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} && {AGGREGATES} == {AGGREGATES}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_AGGREGATES";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} && {AGGREGATES} == {LINESFROMPOINTS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_LINES_FROM_POINTS";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} && {AGGREGATES} == {POLYGONS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_POLYS";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} && {AGGREGATES} == {AGGREGATES}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_AGGREGATES";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} && {AGGREGATES} == {LINESFROMPOINTS}} {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_LINES_FROM_POINTS";             }          elseif { {ATTRIBUTES} == {GEOM_BUILD} } {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_BUILD_AGGREGATES";             }          elseif { {ATTRIBUTES} == {GEOM_AND_ATTRS} } {                puts "MACRO FeatureMerger_REFERENCE_INFO GEOM_AND_ATTR_BUILD_AGGREGATES";             }          else {}; ]
+FACTORY_DEF {*} ReferenceFactory    FACTORY_NAME FeatureMerger    INPUT REFERENCER FEATURE_TYPE AttributeRenamer_OUTPUT    INPUT REFERENCEE FEATURE_TYPE GeometryExtractor_2_OUTPUT    REFERENCE_INFO $(FeatureMerger_REFERENCE_INFO)    REFERENCE_TABLE @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>_ori_geometry<closeparen>,FeatureMerger) @EvaluateExpression(FDIV,STRING_ENCODED,<at>Value<openparen>_geometry<closeparen>,FeatureMerger) AUTO    ATTR_ACCUM_MODE "HANDLE_CONFLICT"    ATTR_CONFLICT_RES "REQUESTOR_IF_CONFLICT"    IGNORE_NULLS "No"    HANDLE_NULL_MISSING_KEYS_LIKE_FME2013 No    LIST_ATTRS_TO_INCLUDE { <Unused> }    LIST_ATTRS_TO_INCLUDE_MODE <Unused>    MERGE_ATTRIBUTES Yes    MANAGE_FME_TYPE Yes    MODE COMPLETE    PROCESS_DUPLICATE_REFERENCEES YES    REFERENCEES_FIRST No    REJECT_INVALID_GEOM YES    CLEANING_TOLERANCE <Unused>    OUTPUT COMPLETE FEATURE_TYPE FeatureMerger_MERGED    OUTPUT REJECTED FEATURE_TYPE FeatureMerger_<REJECTED>
+# -------------------------------------------------------------------------
+# Assumption is that the workspace temp dir has been already set and created.  See controldefs.cpp - ControlDefs::writeVisualizerTempDir
+DEFAULT_MACRO WORKSPACE_TEMP_DIR
+INCLUDE [    set safeName "[regsub -all {[^a-zA-Z0-9]} {FeatureReader__Rejected_} _]_[expr round(rand() * 1000000)]_[clock clicks  -milliseconds]";    puts "MACRO SAFE_FFS_NAME $safeName"; ]
+FACTORY_DEF {*} InspectorFactory    FACTORY_NAME FeatureReader__Rejected__Prepper    COMMAND_PARM_EVALUATION SINGLE_PASS    INPUT  FEATURE_TYPE GeometryExtractor_2_<REJECTED>    INPUT  FEATURE_TYPE FeatureReader_<REJECTED>    INPUT  FEATURE_TYPE FeatureMerger_<REJECTED>    INPUT  FEATURE_TYPE ListExploder_<REJECTED>    INPUT  FEATURE_TYPE ListExploder_2_<REJECTED>    INPUT  FEATURE_TYPE GeometryExtractor_<REJECTED>    GROUP_ATTRIBUTE __inspector_feature_type_attr__    GROUP_BY {  }    GROUP_ATTRIBUTE_PREFIX { FeatureReader__Rejected_ }    RASTER_REDUCTION NoReduction    POINT_CLOUD_REDUCTION NO_THINNING    OUTPUT RESULT FEATURE_TYPE __viewme__
+# Now route all the features into the recorder, changing their
+# feature type to the transformer name so that they view nicely
+DEFAULT_MACRO VISUALIZER_FEATURE_FILE $(WORKSPACE_TEMP_DIR)/$(SAFE_FFS_NAME).ffs
+DEFAULT_MACRO VISUALIZER_CREATE_SPATIAL_INDEX NO
+# [PR#45549] The Data Inspector will limit the maximum number of features
+# it reads on WIN32, so we will correspondingly limit the number of
+# features we record here using the MAX_FEATURES_TO_RECORD directive.
+FACTORY_DEF * RecorderFactory    FACTORY_NAME FeatureReader__Rejected__Recorder    COMMAND_PARM_EVALUATION SINGLE_PASS    INPUT FEATURE_TYPE __viewme__       _wb_termination_feature Yes       @FeatureType(TERMINATOR_@Value(_wb_termination_xformer))    INPUT FEATURE_TYPE __viewme__       @FeatureType(@Value(__inspector_feature_type_attr__))       @RemoveAttributes(__inspector_feature_type_attr__)    FEATURE_FILE "$(VISUALIZER_FEATURE_FILE)"    STORE_SCANNED_SCHEMA YES    CREATE_SPATIAL_INDEX "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    INSPECTOR "$(VISUALIZER_CREATE_SPATIAL_INDEX)"    FSC_SCHEMA observationType,varchar<openparen>255<closeparen>,timestep,varchar<openparen>255<closeparen>,id,varchar<openparen>255<closeparen>,observedPropertyName,varchar<openparen>255<closeparen>,result,varchar<openparen>255<closeparen>,_element_index,varchar<openparen>255<closeparen>,fme_rejection_code,varchar<openparen>255<closeparen>,_dataset,varchar<openparen>255<closeparen>,_total_features_written,varchar<openparen>255<closeparen>,_reader_error,varchar<openparen>255<closeparen>,gfid,varchar<openparen>255<closeparen>,_ori_geometry,varchar<openparen>255<closeparen>,_geometry,varchar<openparen>255<closeparen>    MODE RECORD    STORE_SCANNED_METADATA    RECORD_DIRECTLY_TO_DISK YES    MAX_FEATURES_TO_RECORD WIN32 2000000
+# -------------------------------------------------------------------------
+FACTORY_DEF * TeeFactory    FACTORY_NAME GeometryRemover    INPUT  FEATURE_TYPE FeatureMerger_MERGED    OUTPUT FEATURE_TYPE GeometryRemover_OUTPUT         @RemoveGeometry()
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * RoutingFactory FACTORY_NAME "Destination Feature Type Routing Correlator"   COMMAND_PARM_EVALUATION SINGLE_PASS   INPUT FEATURE_TYPE *    ROUTE FME_GENERIC GeometryRemover_OUTPUT TO POSTGRES __GO_TO_FINAL_OUTPUT_ROUTER__ <at>CopyAttributes<openparen>ENCODED<comma>observedpropertyname<comma>observedPropertyName<closeparen>,multi_writer_id,0,<at>SupplyAttributes<openparen>ENCODED<comma>__wb_out_feat_type__<comma>weather_data<closeparen> GEOMETRY   FEATURE_TYPE_ATTRIBUTE __wb_out_feat_type__   OUTPUT ROUTED FEATURE_TYPE *    OUTPUT NOT_ROUTED FEATURE_TYPE __nuke_me__ @Tcl2("FME_StatMessage 818059 [FME_GetAttribute fme_template_feature_type] 818060 818061 fme_warn")
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * TeeFactory   FACTORY_NAME "Final Output Nuker"   INPUT FEATURE_TYPE __nuke_me__
+
+# -------------------------------------------------------------------------
+
+FACTORY_DEF * CreationFactory    FACTORY_NAME VisualizerProcessor   CREATE_AT_END   OUTPUT FEATURE_TYPE __NUKEME__   @TCL("if [file exists {$(WORKSPACE_TEMP_DIR)}] {set files [glob -nocomplain -directory  {$(WORKSPACE_TEMP_DIR)} -tails *.ffs];   if {[llength $files] == 1} {    set theFile {$(WORKSPACE_TEMP_DIR)/};   append theFile [lindex $files 0];   eval FME_Execute System \173\042$(FME_HOME_UNIX)/fmedatainspector\042 --visualizer --single-application --delete-on-close --no-source-prompt -f FFS \042$theFile\042 & \175;  } elseif { [llength $files] == 0 } {  catch { file delete -force {$(WORKSPACE_TEMP_DIR)} };  } else {  set filesNoExt {}; set lastfile {}; foreach {fileName} [lsort $files] { set fileNoExt [string trimright $fileName {.ffs}]; if [regexp {(.*)_[0-9]*$} $fileNoExt wholething fileNoExtBase] {  if { $fileNoExtBase == $lastfile } { continue } }; set lastfile $fileNoExt; lappend filesNoExt $fileNoExt };  eval FME_Execute System \173\042$(FME_HOME_UNIX)/fmedatainspector\042 --visualizer --single-application --delete-on-close --no-source-prompt -d {$(WORKSPACE_TEMP_DIR)} -a ffs -f FFS $filesNoExt & \175; }; }; ")
+FACTORY_DEF * TeeFactory    FACTORY_NAME VisualizerCleaner   INPUT FEATURE_TYPE __NUKEME__
+# -------------------------------------------------------------------------
+POSTGRES_1_DEF weather_data   postgres_type                All   postgres_sql_key_columns     ""   postgres_drop_table          ""   postgres_truncate_table      ""   postgres_mode                ""   fme_feature_operation        INSERT   fme_table_handling           DROP_CREATE   postgres_create_with_oids    YES   postgres_vacuum_analyze      NO   postgres_allow_serial_writing NO   observedpropertyname         text   timestep                     varchar(200)   result                       varchar(200)   gfid                         varchar(200)
