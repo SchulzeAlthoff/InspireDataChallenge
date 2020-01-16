@@ -1,0 +1,107 @@
+-- Table: public.weather_data
+
+-- DROP TABLE public.weather_data;
+
+CREATE TABLE public.weather_data
+(
+    observedpropertyname text COLLATE pg_catalog."default",
+    timestep character varying(200) COLLATE pg_catalog."default",
+    result character varying(200) COLLATE pg_catalog."default",
+    gfid character varying(200) COLLATE pg_catalog."default"
+)
+WITH (
+    OIDS = TRUE
+)
+TABLESPACE pg_default;
+	
+	
+	
+-- Table: public.weather_data_stations
+
+-- DROP TABLE public.weather_data_stations;
+
+CREATE TABLE public.weather_data_stations
+(
+    gfid character varying(200) COLLATE pg_catalog."default",
+    geom geometry(Geometry,4326)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.weather_data_stations
+    OWNER to postgres;
+
+-- Index: weather_data_stations_geom_1578577361249
+
+-- DROP INDEX public.weather_data_stations_geom_1578577361249;
+
+CREATE INDEX weather_data_stations_geom_1578577361249
+    ON public.weather_data_stations USING gist
+    (geom)
+    TABLESPACE pg_default;
+	
+	
+	
+-- Table: public.highways_subs_with_station
+
+-- DROP TABLE public.highways_subs_with_station;
+
+CREATE TABLE public.highways_subs_with_station
+(
+    osm_id bigint,
+    highway text COLLATE pg_catalog."default",
+    junction text COLLATE pg_catalog."default",
+    motorcar text COLLATE pg_catalog."default",
+    foot text COLLATE pg_catalog."default",
+    bicycle text COLLATE pg_catalog."default",
+    paved text COLLATE pg_catalog."default",
+    surface text COLLATE pg_catalog."default",
+    tracktype text COLLATE pg_catalog."default",
+    barrier text COLLATE pg_catalog."default",
+    bridge text COLLATE pg_catalog."default",
+    tunnel text COLLATE pg_catalog."default",
+    construction text COLLATE pg_catalog."default",
+    oneway text COLLATE pg_catalog."default",
+    service text COLLATE pg_catalog."default",
+    access text COLLATE pg_catalog."default",
+    toll text COLLATE pg_catalog."default",
+    tourism text COLLATE pg_catalog."default",
+    name text COLLATE pg_catalog."default",
+    route text COLLATE pg_catalog."default",
+    z_order integer,
+    way_area real,
+    tags text COLLATE pg_catalog."default",
+    source integer,
+    target integer,
+    id integer,
+    length double precision,
+    "asc" double precision,
+    gfid character varying(200) COLLATE pg_catalog."default",
+    _distance character varying(200) COLLATE pg_catalog."default",
+    _angle character varying(200) COLLATE pg_catalog."default",
+    _candidate_angle character varying(200) COLLATE pg_catalog."default",
+    _candidate_label_angle character varying(200) COLLATE pg_catalog."default",
+    _closest_candidate_x character varying(200) COLLATE pg_catalog."default",
+    _closest_candidate_y character varying(200) COLLATE pg_catalog."default",
+    _closest_base_x character varying(200) COLLATE pg_catalog."default",
+    _closest_base_y character varying(200) COLLATE pg_catalog."default",
+    geom geometry(Geometry,3067)
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE pg_default;
+
+ALTER TABLE public.highways_subs_with_station
+    OWNER to postgres;
+
+-- Index: highways_subs_with_station_geom_1579166626280
+
+-- DROP INDEX public.highways_subs_with_station_geom_1579166626280;
+
+CREATE INDEX highways_subs_with_station_geom_1579166626280
+    ON public.highways_subs_with_station USING gist
+    (geom)
+    TABLESPACE pg_default;
